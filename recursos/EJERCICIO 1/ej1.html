@@ -110,12 +110,16 @@
 		}
 
 		function sumarTodo () {
-			var total = 0;
+			/*var total = 0;
 			for (var i = 0; i < 3; i++) {
 				for (var j = 0; j < 3; j++) {
 					total += parseInt(tablero.rows[i].cells[j].childNodes[0].value);
 				}
-			}
+			}*/
+			var total=document.getElementsByTagName('td');
+			total=Array.from(total);
+			total.reduce((res,num) => [res + parseInt(num),0]);
+
 			var mensajeSuma = document.createElement("p");
 			var contenidoMensaje = document.createTextNode(`El resultado de la suma es: ${total}`);
 			mensajeSuma.appendChild(contenidoMensaje);
