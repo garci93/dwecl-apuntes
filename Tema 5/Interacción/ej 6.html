@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="container">
+            <img id="imagen" src="https://images.pexels.com/photos/733475/pexels-photo-733475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" height="580px">
+        </div>
+        <script type="text/javascript">
+            window.onmousedown = botonOn;
+            window.onmouseup = botonOff;
+
+            function botonOn(e){
+                imagen.src = "https://cdn.japantimes.2xx.jp/wp-content/uploads/2016/04/p14-ito-daylight-saving-a-20160424-870x580.jpg";
+            }
+            function botonOff(e){
+                document.getElementById("imagen").src = "https://images.pexels.com/photos/733475/pexels-photo-733475.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+            }
+        </script>
+    </body>
+</html>

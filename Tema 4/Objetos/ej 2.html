@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function Producto_alimenticio (codigo_in, nombre_in, precio_in){
+                this.codigo = codigo_in;
+                this.nombre = nombre_in;
+                this.precio = precio_in;
+            }
+
+            Producto_alimenticio.prototype.imprimeDatos = function(){
+                for (var i in this) {
+                    if (this.hasOwnProperty(i)) {
+                        console.log(`Código: ${i}: ${this[i]}`)
+                    }
+                }
+            }
+
+            producto_alimenticio1 = new Producto_alimenticio("02385","Huevos","2,65 €");
+            producto_alimenticio2 = new Producto_alimenticio("04952","Leche","1,39 €");
+            producto_alimenticio3 = new Producto_alimenticio("29058","Harina","0,97 €");
+
+            arr_prod = new Array(producto_alimenticio1,producto_alimenticio2,producto_alimenticio3);
+
+            for (var i in arr_prod) {
+                arr_prod[i].imprimeDatos();
+            }
+
+        </script>
+    </body>
+</html>

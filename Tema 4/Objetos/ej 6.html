@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function Persona (nombre, edad, genero){
+                this.nombre = nombre;
+                this.edad = edad;
+                this.genero = genero;
+
+            }
+
+            Persona.prototype.obtDetalles = function(marca, modelo, color){ // Mejor con prototype
+                for (var i in this) {
+                    if (this.hasOwnProperty(i)) {
+                        console.log(`${i}: ${this[i]}`);
+                    }
+                }
+            }
+
+            function Estudiante (nombre, edad, genero, curso, grupo) {
+                Persona.call(this, nombre, edad, genero);
+                this.curso = curso;
+                this.grupo = grupo;
+            }
+
+            Estudiante.prototype = new Persona();
+
+            Estudiante.prototype.registrar = function(){
+                console.log(`El alumno ${this.nombre} ha sido registrado en el curso ${this.curso} y el grupo ${this.grupo}`);
+            }
+
+            function Profesor (nombre, edad, genero, asignatura, nivel) {
+                Persona.call(this, nombre, edad, genero);
+                this.asignatura = asignatura;
+                this.nivel = nivel;
+            }
+
+            Profesor.prototype = new Persona();
+
+            Profesor.prototype.asignar = function(){
+                console.log(`Al profesor ${this.nombre} se le ha asignado la asignatura ${this.asignatura}`);
+            }
+
+            e1 = new Estudiante("José Pérez Sánchez", 15, "Hombre", "4º ESO", "A");
+            p1 = new Profesor("Valeria Martín Campos", 35, "Mujer", "Historia", "Secundaria");
+
+            e1.registrar();
+            e1.obtDetalles();
+            p1.asignar();
+            p1.obtDetalles();
+        </script>
+    </body>
+</html>

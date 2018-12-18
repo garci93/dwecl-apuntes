@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 11 Tema 2</title>
+    <script>
+      var num = Number(prompt('Introduzca un número'));
+      var res = 0;
+      num = parseInt(num);
+      while (num > 0) {
+        res += num - (parseInt(num/10)*10);
+        num = parseInt(num/10);
+      }
+      alert(res);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

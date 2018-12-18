@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+
+	</head>
+	<body>
+		<script type="text/javascript">
+			var correctas=0;
+			var mayor=Math.max(opener.getElementById("num1").value
+				,opener.getElementById("num2").value
+				,opener.getElementById("num3").value);
+			if (opener.getElementById("mayor").value == mayor) {correctas++;}
+			var horas = parseInt((opener.getElementById("anyo").value.getTime())/3600000);
+			if (opener.getElementById("horas").value == horas) {correctas++;}
+			document.write("El número de respuestas acertadas ha sido: "+correctas);
+		</script>
+	</body>
+</html>

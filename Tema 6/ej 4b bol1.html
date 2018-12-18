@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="limpiar_codigo.js"></script>
+        <script type="text/javascript">
+            window.onload=function () {
+                cuando.addEventListener("click",mostrarCuando);
+                donde.addEventListener("click",mostrarDonde);
+                porQue.addEventListener("click",mostrarPorQue);
+            }
+
+            var respuestas = new Map();
+
+            function imprimirPagina () {window.print();}
+
+            function mostrarCuando (e) {
+                borrarRespuestas();
+                var respuesta = document.createElement('p');
+                respuesta.style.color = "black";
+                respuesta.class = "respuesta";
+                cuando.style.color = "red";
+                respuesta.appendChild(document.createTextNode("R: Ahora mismo"));
+                e.srcElement.appendChild(respuesta);
+            }
+
+            function mostrarDonde (e) {
+                borrarRespuestas();
+                var respuesta = document.createElement('p');
+                respuesta.style.color = "black";
+                respuesta.class = "respuesta";
+                donde.style.color = "red";
+                respuesta.appendChild(document.createTextNode("R: Aquí mismo"));
+                e.srcElement.appendChild(respuesta);
+            }
+
+            function mostrarPorQue (e) {
+                borrarRespuestas();
+                var respuesta = document.createElement('p');
+                respuesta.style.color = "black";
+                respuesta.class = "respuesta";
+                porQue.style.color = "red";
+                respuesta.appendChild(document.createTextNode("R: Porque sí"));
+                e.srcElement.appendChild(respuesta);
+            }
+
+            function borrarRespuestas() {
+                var respuestas = document.getElementsByClassName('respuesta');
+                for (var i in respuestas) {
+                    document.removeChild(respuestas[i]);
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <span id="faq">
+            <a href="#" id="imprimir">Imprimir</a>
+            <br>
+            <h1>Listado FAQs</h1>
+
+            <h3 id="cuando" class="pregunta" style="color:blue">¿Cuándo?</h3>
+
+            <h3 id="donde" class="pregunta" style="color:blue">¿Dónde?</h3>
+
+            <h3 id="porQue" class="pregunta" style="color:blue">¿Por qué?</h3>
+        </span>
+    </body>
+</html>

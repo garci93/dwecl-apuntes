@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            class Persona {
+                constructor (nombre, edad, genero){
+                    var _nombre = nombre;
+                    var _edad = edad;
+                    var _genero = genero;
+
+                    this.getNombre = function (){
+                        return _nombre;
+                    }
+
+                    this.setNombre = function (nombre){
+                        this._nombre = nombre;
+                    }
+
+                    this.getEdad = function (){
+                        return _edad;
+                    }
+
+                    this.getEdad = function (edad){
+                        this._edad = edad;
+                    }
+
+                    this.getGenero = function (){
+                        return _genero;
+                    }
+
+                    this.setGenero = function (genero){
+                        this._genero = genero;
+                    }
+                }
+
+
+            }
+
+
+            class Estudiante extends Persona {
+                constructor (nombre, edad, genero, curso, grupo) {
+                    super(nombre, edad, genero);
+                    var _curso = curso;
+                    var _grupo = grupo;
+
+                    this.getCurso = function (){
+                        return _curso;
+                    }
+
+                    this.setCurso = function (curso){
+                        this._curso = curso;
+                    }
+
+                    this.getGrupo = function (){
+                        return _grupo;
+                    }
+
+                    this.setGrupo = function (grupo){
+                        this._grupo = grupo;
+                    }
+                }
+
+                registrar(){
+                    console.log(`El alumno ${this.getNombre()} ha sido registrado en el curso ${this.getCurso()} y el grupo ${this.getGrupo()}`);
+                }
+            }
+
+
+            class Profesor extends Persona {
+                constructor (nombre, edad, genero, asignatura, nivel) {
+                    super(nombre, edad, genero);
+                    var _asignatura = asignatura;
+                    var _nivel = nivel;
+
+                    this.getAsignatura = function (){
+                        return _asignatura;
+                    }
+
+                    this.setAsignatura = function (asignatura){
+                        _asignatura = asignatura;
+                    }
+
+                    this.getNivel = function (){
+                        return _nivel;
+                    }
+
+                    this.setNivel = function (nivel){
+                        _nivel = nivel;
+                    }
+                }
+
+                asignar(){
+                    console.log(`Al profesor ${this.getNombre()} se le ha asignado la asignatura ${this.getAsignatura()}`);
+                }
+            }
+
+            e1 = new Estudiante("José Pérez Sánchez", 15, "Hombre", "4º ESO", "A");
+            p1 = new Profesor("Valeria Martín Campos", 35, "Mujer", "Historia", "Secundaria");
+
+            e1.registrar();
+            p1.asignar();
+        </script>
+    </body>
+</html>

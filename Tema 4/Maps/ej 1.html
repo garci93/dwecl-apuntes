@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+
+            var mapa = new Map();
+
+            mapa.set( 'DWECL', 'Desarrollo Web en Entorno Cliente' );
+            mapa.set( 'DWESE', 'Desarrollo Web en Entorno Servidor' );
+            mapa.set( 'DAW', 'Despliegue de Aplicaciones Web' );
+            mapa.set( 'EIE', 'Empresa e Iniciativa Emprendedora' );
+            mapa.set( 'DIW', 'Diseño de Interfaces Web' );
+
+            // a. Muestra cuántos módulos hay almacenados
+            console.log(mapa.size);
+
+            // b. Muestra el contenido de la estructura
+            for(let [key, value] of mapa){
+                console.log(`${key} = ${value}`);
+            }
+
+            // c. Devuelve las abreviaturas de todos los módulos guardados
+            var it1 = mapa.keys();
+            for (let k of it1) {
+                console.log(k);
+            }
+
+            // d. Devuelve el nombre completo de todos los módulos
+            var it2 = mapa.values();
+            for (let v of it2) {
+                console.log(v);
+            }
+
+            // e. Consulta si está el módulo “DAW”
+            mapa.has('DAW') ? console.log(`Está el módulo DAW`) : console.log (`No está el módulo DAW`);
+
+
+            // f. Si está, elimínalo. Vuelve a mostrar el contenido de la estructura
+            if (mapa.has("DAW")) {
+                mapa.delete("DAW");
+            }
+            for(let [key, value] of mapa){
+                console.log(`${key} = ${value}`);
+            }
+
+            // Extra! Si quieres borrarlo todo y dejarlo vacío, usas clear()
+        </script>
+    </body>
+</html>

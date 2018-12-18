@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script type="text/javascript">
+            window.onload = function () {
+                teide.addEventListener("click", descripcionTeide);
+                mulhacen.addEventListener("click", descripcionMulhacen);
+                aneto.addEventListener("click", descripcionAneto);
+            }
+
+            function descripcionTeide () {
+                desc.textContent = "Volcán situado en la isla de Tenerife. 3718 m";
+            }
+
+            function descripcionMulhacen () {
+                desc.textContent = "Enclavado en la provincia de Granada, pertnenece a Sierra Nevada. 3478 m";
+            }
+
+            function descripcionAneto () {
+                desc.textContent = "Situado en el municipio de Benasque, provincia de Huesca, pico más alto de los Pirineos. 3404 m";
+            }
+        </script>
+    </head>
+    <body>
+        <img src="http://www.losapuntesdelviajero.com/wp-content/uploads/2017/07/Visitar-el-Teide-Tenerife-Canarias-26.jpg" id="teide" width="200px">
+        <img src="https://www.nevasport.com/fotos/buzon/92677-El-rey-Mulhacen_tn1200x.jpg" id="mulhacen" width="200px">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Cima_aneto-01.jpg/1200px-Cima_aneto-01.jpg" id="aneto" width="200px">
+        <h4>Picos más altos de España</h4>
+        <p id="desc"></p>
+    </body>
+</html>

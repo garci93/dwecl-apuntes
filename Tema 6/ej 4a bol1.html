@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="limpiar_codigo.js"></script>
+        <script type="text/javascript">
+            window.onload=function () {
+                imprimir.addEventListener("click",imprimirPagina);
+                cuando.addEventListener("click",mostrarCuando);
+                donde.addEventListener("click",mostrarDonde);
+                porQue.addEventListener("click",mostrarPorQue);
+            }
+
+            function imprimirPagina () {window.print();}
+
+            function mostrarCuando () {
+                cuando.style="color:red";
+                esconderRespuestas();
+                cuandoR.style="display:block";
+            }
+
+            function mostrarDonde () {
+                donde.style="color:red";
+                esconderRespuestas();
+                dondeR.style="display:block";
+            }
+
+            function mostrarPorQue () {
+                porQue.style="color:red";
+                esconderRespuestas();
+                porQueR.style="display:block";
+            }
+
+            function esconderRespuestas() {
+                var respuestas = document.getElementsByClassName('respuesta');
+                for (var i in respuestas) {
+                    respuestas[i].style="display:none";
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <span>
+            <a href="#" id="imprimir">Imprimir</a>
+            <br>
+            <h1>Listado FAQs</h1>
+
+            <h3 id="cuando" class="pregunta" style="color:blue">¿Cuándo?</h3>
+            <p id="cuandoR" class="respuesta" style="display:none">R: Ahora mismo</p>
+
+            <h3 id="donde" class="pregunta" style="color:blue">¿Dónde?</h3>
+            <p id="dondeR" class="respuesta" style="display:none">R: Aquí mismo</p>
+
+            <h3 id="porQue" class="pregunta" style="color:blue">¿Por qué?</h3>
+            <p id="porQueR" class="respuesta" style="display:none">R: Porque sí</p>
+        </span>
+    </body>
+</html>

@@ -1,0 +1,85 @@
+<html lang='es'>
+<head>
+	<meta charset='utf-8'>
+	<title></title>
+	<style type="text/css">
+		td {
+			border:1px solid black;
+			width: 30px;
+			height: 30px;
+		}
+	</style>
+	<script src="cookies.js"></script>
+	<script src="limpiar_codigo.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			crearTabla();
+			generar.addEventListener("click",generarValores);
+			limpiar.addEventListener("click",limpiarTodo);
+			window.addEventListener("keydown",comprobarTecla);
+			suma.addEventListener("click",sumarTodo);
+		}
+
+		function comprobarTecla (e) {
+			if (e.key == 'l'){limpiarTodo();}
+		}
+
+		var partidas = getCookie("partidasJugadas") || 1;
+
+		function crearTabla () {
+			var tabla = document.createElement("table");
+			tabla.setAttribute("id","tablero");
+			for (var i = 0; i < 3; i++) {
+				tabla.insertRow(i);
+				for (var j = 0; j < 3; j++) {
+					tabla.rows[i].insertCell(j);
+					var casilla = document.createElement("p");
+					tabla.rows[i].cells[j].appendChild(casilla);
+				}
+			}
+			document.getElementById('divTabla').appendChild(tabla);
+		}
+
+		function generarValores () {
+			window.open("ej1 ventana.html","","width=400,height=300");
+		}
+
+		function limpiarTodo () {
+			for (var i = 0; i < 3; i++) {
+				for (var j = 0; j < 3; j++) {
+					tablero.rows[i].cells[j].childNodes[0].setAttribute("disabled","disabled");
+				}
+			}
+			for (var i of document.getElementsByClassName('botonNumero')) {
+				i.setAttribute("value","?");
+			}
+			generar.removeAttribute("disabled");
+			partidas++;
+			setCookie("partidasJugadas",partidas);
+		}
+
+		function sumarTodo () {
+			var total = 0;
+			for (var i = 0; i < 3; i++) {
+				for (var j = 0; j < 3; j++) {
+					total += parseInt(tablero.rows[i].cells[j].childNodes[0].value);
+				}
+			}
+			var mensajeSuma = document.createElement("p");
+			var contenidoMensaje = document.createTextNode(`El resultado de la suma es: ${total}`);
+			mensajeSuma.appendChild(contenidoMensaje);
+			document.body.appendChild(mensajeSuma);
+		}
+
+	</script>
+	</head>
+<body>
+	<button id="generar">Generar valores</button>
+	<input type='button' value='?' class="botonNumero" id="primero"></input>
+	<input type='button' value='?' class="botonNumero" id="segundo"></input>
+	<input type='button' value='?' class="botonNumero" id="tercero"></input>
+	<div id="divTabla"></div>
+	<button id="limpiar">Limpiar</button>
+	<button id="suma">Suma</button>
+</body>
+</html>

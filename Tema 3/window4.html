@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ejecicio 4 Window</title>
+  </head>
+  <body onload="">
+    <h1>Hora actual</h1>
+    <form>
+      <input type="text" id "1" value="hora()">
+      <input type="text" id "2" value="hora()">
+      <input type="text" id "3" value="hora()">
+    </form>
+
+    <h1>Hora de alarma</h1>
+    <input type="text" id "11" value="hora()">
+    <input type="text" id "12" value="hora()">
+    <input type="button" value="Habilitar">
+    <input type="button" value="Deshabilitar">
+    <form>
+      <input type="button" value="Recargar" onclick="location.reload()">
+    </form>
+    var t = new Date();
+    var h=t.getHours();
+    var m=t.getMinutes();
+    var m=t.getSeconds();
+  </body>
+</html>

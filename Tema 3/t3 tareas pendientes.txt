@@ -1,0 +1,2 @@
+exp reg 22-30 + ejercicio url
+objeto window bom 2,3,4

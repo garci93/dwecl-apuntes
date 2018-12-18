@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="container" id="cuadro">
+
+        </div>
+        <script type="text/javascript">
+            window.onkeydown = tecla;
+
+            function tecla(e){
+                var evento = e || window.event();
+                var teclita = String.fromCharCode(evento.keyCode);
+                document.getElementById("cuadro").innerHTML = "";
+
+                document.getElementById("cuadro").style.background = "#cce6ff";
+                if (evento.ctrlKey) {
+                    document.getElementById("cuadro").innerHTML += `Ctrl + `;
+                }
+                if (evento.altKey) {
+                    document.getElementById("cuadro").innerHTML += `Alt + `;
+                }
+                if (evento.shiftKey) {
+                    document.getElementById("cuadro").innerHTML += `Shift + `;
+                }
+                document.getElementById("cuadro").innerHTML += teclita;
+            }
+        </script>
+    </body>
+</html>

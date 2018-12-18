@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="limpiar_codigo.js">
+
+        </script>
+        <script type="text/javascript">
+            window.onload = function () {
+                buscar();
+                entrada.addEventListener("keydown",anadirSubmit);
+                anadir.addEventListener("click",anadirElemento);
+                borrarVacios.addEventListener("click",borrarElementosVacios);
+                clonar.addEventListener("click",clonarUltimo);
+            }
+
+            function anadirSubmit (e) {
+                if (e.keyCode == 13) {
+                    e.preventDefault();
+                    anadirElemento();
+                }
+            }
+
+            function anadirElemento () {
+                var contenido = document.createTextNode(entrada.value);
+                var elemento = document.createElement('li');
+                elemento.appendChild(contenido);
+                lista.appendChild(elemento);
+            }
+
+            function borrarElementosVacios () {
+                var elementos = document.querySelectorAll("li");
+                for (var i of elementos) {
+                    if (i.firstChild.length == 0) {
+                        lista.removeChild(i);
+                    }
+                }
+            }
+
+            function clonarUltimo () {
+                var contenido = document.createTextNode(lista.lastChild.childNodes[0].nodeValue);
+                console.log(lista.lastChild.childNodes[0].nodeValue);
+                var clon = document.createElement('li');
+                clon.appendChild(contenido);
+                lista.appendChild(clon);
+            }
+        </script>
+    </head>
+    <body>
+        <form class="" action="#" method="post">
+            <label for="entrada"></label>
+            <input type="text" name="entrada" id="entrada" value="">
+            <button type="button" id="anadir" name="anadir">Añadir</button>
+            <button type="button" id="borrarVacios" name="borrarVacios">Borrar nodos vacíos</button>
+            <button type="button" id="clonar" name="clonar">Clonar último nodo</button>
+        </form>
+        <ul id="lista"></ul>
+    </body>
+</html>

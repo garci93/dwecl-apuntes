@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      var base1 = Number(prompt("Introduzca la base del número"));
+      var expOpcion = /[28]|(1?[06])/;
+      if (expOpcion.test(base1)) {
+        var num = prompt("Introduzca el número a convertir");
+        switch (base1){
+          case 2:
+            var expBase = /[01]+/;
+            break;
+          case 8:
+            var expBase = /[0-7]+/;
+            break;
+          case 10:
+            var expBase = /\d+/;
+            break;
+          case 16:
+            var expBase = /[0-9a-f]+/;
+            break;
+          default:
+            document.write("Error inesperado");
+        }
+        if (expBase.test(num)) {
+          var base2 = Number(prompt("Introduzca la base a la que desea convertir el número"));
+          var exp = /[28]|(1?[06])/;
+          if (exp.test(base2)) {
+            num = parseInt(num,base1);
+            num = num.toString(base2);
+            alert(num);
+          } else {
+            document.write("Base incorrecta");
+          }
+        } else {
+          alert("El número no se corresponde con la base especificada");
+        }
+      } else {
+        document.write("Base incorrecta");
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

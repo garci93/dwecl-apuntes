@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+      <h1>Imágenes</h1>
+      <img id="foto" src="http://wbrc.typepad.com/.a/6a0133f1918702970b017d3cb3b1c2970c-pi" />
+    <script type="text/javascript">
+        setInterval(imagen,1000);
+        var queImagen = 0;
+        function imagen() {
+            switch (queImagen){
+                case 0:
+                    document.getElementById("foto").src = "https://wwwcache.wral.com/asset/weather/2016/06/14/15777736/15777736-1465907407-640x480.jpg";
+                    queImagen++;
+                    break;
+                case 1:
+                    document.getElementById("foto").src = "https://i.pinimg.com/736x/b1/e9/87/b1e98707bfcc9b1ee29bcf283e9e02fa.jpg";
+                    queImagen++;
+                    break;
+                case 2:
+                    document.getElementById("foto").src = "http://s1.1zoom.me/b5160/702/Spain_Sea_Sky_Stars_Girona_Night_Crag_525056_640x480.jpg";
+                    queImagen++;
+                    break;
+                case 3:
+                    document.getElementById("foto").src = "http://wbrc.typepad.com/.a/6a0133f1918702970b017d3cb3b1c2970c-pi";
+                    queImagen = 0;
+                    break;
+                default:
+                    console.log("Error inesperado")
+            }
+        }
+    </script>
+  </body>
+</html>

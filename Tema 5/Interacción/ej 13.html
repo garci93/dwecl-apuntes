@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+
+    </head>
+    <body>
+        <p>Elige un color:</p>
+        <form name="formulario" action="#" method="post">
+            <input type="radio" id="colorRojo" name="color" value="Rojo">Rojo<br>
+            <input type="radio" id="colorVerde" name="color" value="Verde">Verde<br>
+            <input type="radio" id="colorAzul" name="color" value="Azul">Azul<br>
+            <br>
+            Selecciona una asignatura:
+            <select class="asignatura">
+                <option value="Matematicas">Matematicas</option>
+                <option value="Lengua">Lengua</option>
+                <option value="Conocimiento del Medio">Conocimiento del Medio</option>
+                <option value="Plástica">Plástica</option>
+                <option value="Inglés">Inglés</option>
+            </select>
+            <br>
+            <br>
+            Selecciona los días con disponibilidad:
+            <br>
+            <input type="checkbox" name="diasem" value="Lunes">Lunes<br>
+            <input type="checkbox" name="diasem" value="Martes">Martes<br>
+            <input type="checkbox" name="diasem" value="Miércoles">Miércoles<br>
+            <input type="checkbox" name="diasem" value="Jueves">Jueves<br>
+            <input type="checkbox" name="diasem" value="Viernes">Viernes<br>
+            <br>
+            Selecciona el día preferente:
+            <select class="diapref">
+                <option value="Lunes">Lunes</option>
+                <option value="Martes">Martes</option>
+                <option value="Miércoles">Miércoles</option>
+                <option value="Jueves">Jueves</option>
+                <option value="Viernes">Viernes</option>
+                // SelectedIndex para el select (o text), para que se muestre el
+                // último marcado. Ir guardando en un array al final.
+            </select>
+            <br>
+            <br>
+            <input type="submit" id="info" value="Haz clic para enviar información">
+            <input type="submit" id="nuevo" value="Comenzar a rellenar de nuevo">
+            <input type="submit" id="google" value="Haz clic sobre mí">
+        </form>
+        <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("colorRojo").addEventListener("click", cambiarRojo);
+                document.getElementById("colorVerde").addEventListener("click", cambiarVerde);
+                document.getElementById("colorAzul").addEventListener("click", cambiarAzul);
+                document.getElementById("nuevo").addEventListener("click", reiniciar);
+                document.getElementById("google").addEventListener("click", aGoogle);
+            }
+            function reiniciar(){
+                window.location.refresh();
+            }
+            function aGoogle(){
+                window.open("http://www.google.com");
+            }
+            function cambiarRojo(){
+                document.body.style.background = "#ff5040";
+            }
+            function cambiarVerde(){
+                document.body.style.backgroundColor = "#40af50";
+            }
+            function cambiarAzul(){
+                document.body.style.backgroundColor = "#4050ff";
+            }
+        </script>
+    </body>
+</html>

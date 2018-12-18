@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript" src="cookies.js">
+        </script>
+        <script type="text/javascript">
+            window.onload = function () {
+                document.getElementById("guardar").addEventListener("click", validar);
+                document.getElementById("verUna").addEventListener("click", verCookie);
+                document.getElementById("verTodas").addEventListener("click", verCookies);
+                document.getElementById("eliminarUna").addEventListener("click", eliminarCookie);
+                document.getElementById("eliminarTodas").addEventListener("click", eliminarCookies);
+            }
+
+            function validar(){
+                var patrones = {
+                    "dni" : /^\d{2}(\.\d{3}){2}\-[A-Z]$/,
+                    "nombre" : /^([A-ZÑÁ-Ú]+\s){1,3}[A-ZÑÁ-Ú]+$/i,
+                    "fechaNac" : /^(\d{2}\/){2}\d{4}$/i,
+                    "email" : /^\w+\@\w+\.\w+$/,
+                    "web" : /^http\:\/\/www\.\w+\.\w+$/,
+                    "pass" : /^\w{8,10}$/
+                };
+
+                for (var patron in patrones) {
+                    if (patrones[patron].test(document.getElementById(patron).value) == false) {
+                        alert(`El campo ${patron} tiene un formato incorrecto`);
+                        return null;
+                    }
+                }
+                if (document.getElementById("pass").value != document.getElementById("passConf").value) {
+                    alert("Las contraseñas no coinciden");
+                    return null;
+                }
+
+                guardarCookies();
+
+            }
+
+            function guardarCookies () {
+                var campos = document.getElementsByTagName("input");
+                for (var i = 0; i < campos.length-1; i++) {
+                    setCookie(campos[i].name,campos[i].value);
+                }
+            }
+
+            function verCookie() {
+                var cual = prompt("¿Qué cookie desea ver?")
+                document.getElementById(cual).value = getCookie(cual);
+            }
+
+            function verCookies() {
+                var campos = document.getElementsByTagName("input");
+                for (var i = 0; i < campos.length-1; i++) {
+                    campos[i].value = getCookie(campos[i].name);
+                }
+            }
+
+            function eliminarCookie() {
+                var cual = prompt("¿Qué cookie desea eliminar?")
+                delCookie(cual);
+            }
+
+            function eliminarCookies() {
+                var campos = document.getElementsByTagName("input");
+                for (var i = 0; i < campos.length-1; i++) {
+                    delCookie(campos[i].name);
+                }
+            }
+        </script>
+
+        <form class="formulario" action="#" method="post">
+            <label for="dni">DNI:</label>
+            <input type="text" id="dni" name="dni" value=""><br>
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" name="nombre" value=""><br>
+            <label for="fechaNac">F. Nac.:</label>
+            <input type="text" id="fechaNac" name="fechaNac" value=""><br>
+            <label for="email">E-mail:</label>
+            <input type="text" id="email" name="email" value=""><br>
+            <label for="web">Pág. Web:</label>
+            <input type="text" id="web" name="web" value=""><br>
+            <label for="pass">Contraseña:</label>
+            <input type="password" id="pass" name="pass" value=""><br>
+            <label for="passConf">Confirmar contraseña:</label>
+            <input type="password" id="passConf" name="passConf" value=""><br>
+            <input type="submit" id="guardar" value="GUARDAR">
+            <button type="button" id="verUna" name="verUna">VER COOKIE</button>
+            <button type="button" id="verTodas" name="verTodas">VER TODAS</button>
+            <button type="button" id="eliminarUna" name="eliminarUna">ELIMINAR</button>
+            <button type="button" id="eliminarTodas" name="eliminarTodas">ELIMINAR TODAS</button>
+        </form>
+    </body>
+</html>

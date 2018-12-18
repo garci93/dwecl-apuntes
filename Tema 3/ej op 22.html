@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      var par = `Esto es un párrafo. Realmente no cuesta mucho trabajo escribirlo. Yo diría que menos de un minuto. Más o menos.`
+      var exp = /(^|\. )([A-ZÁ-ÚÑ][a-zá-úñ]* )/g;
+      var res = exp.exec(par);
+      while(res!=null){
+        document.write(res[2]);
+        res = exp.exec(par);
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="container" id="cuadro">
+
+        </div>
+        <script type="text/javascript">
+            window.onresize = dimensiones;
+
+            function dimensiones(e){
+                var evento = e || window.event();
+                document.body.innerHTML = `Altura: ${window.innerHeight} Anchura: ${window.innerWidth}`;
+            }
+        </script>
+    </body>
+</html>

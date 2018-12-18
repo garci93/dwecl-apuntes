@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      var exp = prompt("Introduzca un día de la semana y un número de 1 ó 2 dígitos");
+      var pat1 = /^(lunes|martes|miércoles|jueves|viernes|sábado|domingo)\s(0?[1-9]|[12]\d|3[01])$/i;
+      if (pat1.test(exp)) {
+        document.write("Ingreso válido");
+      } else {
+        document.write("Ingreso inválido");
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

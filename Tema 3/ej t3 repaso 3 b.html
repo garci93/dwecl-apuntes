@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <iframe src="ej t3 repaso 3 b iframe.html" width="400" height="150"></iframe>
+    <form>
+        <input type="button" value="Calcular" onclick="potencia()";/>
+        <input type="text";/>
+    </form>
+    <script type="text/javascript">
+        function potencia() {
+            window.document.forms[0].elements[1].value = Math.pow(window.frames[0].document.forms[0].elements[0].value,window.frames[0].document.forms[0].elements[1].value);
+        }
+    </script>
+  </body>
+</html>

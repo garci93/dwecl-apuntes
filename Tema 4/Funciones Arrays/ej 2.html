@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 2 Tema 4</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function obtenerImporteConImpuestos (importe, tipo=1) {
+                switch (tipo) {
+                    case 1:
+                        alert((importe*1.21).toFixed(2));
+                        break;
+                    case 2:
+                        alert((importe*1.1).toFixed(2));
+                        break;
+                    case 3:
+                        alert((importe*1.05).toFixed(2));
+                        break;
+                    default:
+                        alert("Tipo incorrecto");
+                        break;
+                }
+            }
+            var importe = Number(prompt("Introduzca el importe"));
+            var tipo = Number(prompt("Introduzca el tipo"));
+            obtenerImporteConImpuestos(importe,tipo);
+        </script>
+    </body>
+</html>

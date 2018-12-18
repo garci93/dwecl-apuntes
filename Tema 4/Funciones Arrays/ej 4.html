@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var nums = new Array (10);
+            for (var i = 0; i < 10; i++) {
+                nums[i] = parseInt(Math.random()*1001);
+            }
+            document.write(nums+"<br/>");
+            document.write("El menor elemento del vector es "+menor(nums)+"<br/>");
+            document.write("El mayor elemento del vector es "+mayor(nums)+"<br/>");
+            var nums2 = sinExtremos(nums);
+            document.write(nums2+"<br/>");
+
+            function menor(nums){
+                return Math.min(...nums);
+            }
+
+            function mayor(nums){
+                return Math.max(...nums);
+            }
+
+            function sinExtremos(nums){
+                var nums2 = nums.slice();
+                nums2.splice(nums2.indexOf(menor(nums2)),1);
+                nums2.splice(nums2.indexOf(mayor(nums2)),1);
+                return nums2;
+            }
+        </script>
+    </body>
+</html>

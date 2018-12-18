@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function longitudes(arr){
+                var res = new Array(arr.length);
+                for (var i in arr) {
+                    res[i] = arr[i].length;
+                }
+                return res;
+            }
+            var arr = new Array(5);
+            var mayus=/^[A-ZÁ-ÚÑ]/;
+
+            for (var i = 0; i < arr.length; i++) {
+                arr[i] = prompt("Escriba un tweet");
+                if (!mayus.test(arr[i])) {
+                    i--;
+                    alert("La primera letra debe ser mayúscula");
+                }
+            }
+            var longs = longitudes(arr);
+            document.write(longs+"<br />");
+
+            for (var i in arr) {
+                if (arr[i].toLowerCase().includes("software")) {
+                    console.log(arr[i]);
+                }
+            }
+
+            var cumpleTwitter = true;
+            for (var i = 0; i < arr.length; i++) {
+                if (longs[i] > 140) {
+                    cumpleTwitter = false;
+                    document.write("El tweet "+(i+1)+" no cumple el límite de caracteres<br />");
+                }
+            }
+            if(cumpleTwitter) {
+                document.write("Los tweets cumplen el límite de caracteres<br />");
+            }
+
+            document.write("De media, se han escrito "+longs.reduce((total,num) => total+num , 0)/longs.length+" caracteres por tweet");
+        </script>
+    </body>
+</html>

@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>Ejercicio 3 Tema 4</title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var obtenerImporteConImpuestos2 = function (importe) {
+                return ["",(importe*1.21).toFixed(2),(importe*1.1).toFixed(2),(importe*1.05).toFixed(2)];
+            }
+            var importe = Number(prompt("Introduzca el importe"));
+            alert(obtenerImporteConImpuestos2(importe));
+        </script>
+    </body>
+</html>

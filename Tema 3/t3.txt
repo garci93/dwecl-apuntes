@@ -1,0 +1,33 @@
+slice(principio,final): devuelve una parte de una cadena (desde "principio" hasta el carácter anterior a "final") como substring, mejor substring xd
+
+RegExp
+/h/img o bien new RegExp('h','img');
+i: ignorar MAY o min
+m: buscar en más de una línea
+g: buscar todas las coincidencias, no sólo una
+
+^: principio
+$: final
+\d{8}: ocho veces un digito
+\d{8,}: como mínimo ocho...
+\d{8,11}: desde hasta
+?: la anterior letra puede aparecer ono. Para varias letras usar ()
+*: lo mismo pero cero a varias veces
++: Lo mismo pero como mínimo una
+ye(?=ah): Devuelve ye si está seguido de ah (pero sólo marca ye)
+ye(?!ah): Devuelve ye si NO está seguido de ah
+\ba\w*: Busca palabras que empiecen por a
+\w+a\b: Busca palabras que acaben en a
+(·algo·): Almacenar algo para que pueda ser referenciado con \1, \2 etc
+
+/(\. )([A-ZÁ-ÚÑ] \w *)/g => primera palabra de cada frase en un párrafo
+
+En JavaScript, aunque hay que indicar a dónde pertenecen los métodos que usas, con el objeto Window no es necesario
+
+El document.write machaca lo que ya hay escrito en el documento, a no ser que lo metas al final del body en una etiqueta <script>
+
+innerText: sólo puedes pasar texto, no se interpreta
+innerHTML: puedes pasar texto, etiquetas, contenido, es interpretado
+
+El "opener.algo" para cuando una ventana hija quiere acceder a su ventana padre, por así decirlo
+Lo mismo con los <iframe>, pero usando parent.algo

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function Vehiculo (marca, modelo, color, anyo_fab, cilindrada){
+                this.marca = marca;
+                this.modelo = modelo;
+                this.color = color;
+                this.anyo_fab = anyo_fab;
+                this.cilindrada = cilindrada;
+                arrancar = function(marca, modelo, color){
+                    console.log(`El coche de marca ${this.marca}, modelo ${this.modelo}, color ${this.color} ha arrancado.`)
+                }
+            }
+
+            Vehiculo.prototype.mostrarDatos = function(){
+                for (var i in this) {
+                    if (this.hasOwnProperty(i)) {
+                        console.log(`${i}: ${this[i]}`);
+                    }
+                }
+            }
+
+            Vehiculo.prototype.acelerar = function(velocidad) {
+                console.log(`El coche ha acelerado a ${velocidad} km/h`)
+            }
+
+            Vehiculo.prototype.frenar = function() {
+                console.log(`El coche de marca ${this.marca}, modelo ${this.modelo}, color ${this.color} ha parado.`)
+            }
+
+            function Furgoneta (marca, modelo, color, anyo_fab, cilindrada, numPasajeros) {
+                Vehiculo.call(this, marca, modelo, color, anyo_fab, cilindrada);
+                this.numPasajeros = numPasajeros;
+            }
+
+            Furgoneta.prototype = new Vehiculo();
+            // Furgoneta.prototype.constructor = Furgoneta;
+
+            function Todoterreno (marca, modelo, color, anyo_fab, cilindrada, tieneTraccion) {
+                Vehiculo.call(this, marca, modelo, color, anyo_fab, cilindrada);
+                this.tieneTraccion = tieneTraccion;
+            }
+
+            Todoterreno.prototype = new Vehiculo();
+            // Todoterreno.prototype.constructor = Todoterreno;
+
+            f1 = new Furgoneta("Citroën","Berlingo","Gris",1997,"450 cv",6);
+            t1 = new Todoterreno("Jeep","Peej","Verde oscuro","2012","800 cv",true);
+
+            f1.mostrarDatos();
+            t1.mostrarDatos();
+
+        </script>
+    </body>
+</html>

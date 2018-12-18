@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      var exp = prompt("Introduzca una matrícula moderna");
+      var pat1 = /^\d{4}\s([B-DF-HJ-NPR-TV-Z]){3}$/;
+      if (pat1.test(exp)) {
+        document.write("Matrícula válida");
+      } else {
+        document.write("Matrícula inválida");
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

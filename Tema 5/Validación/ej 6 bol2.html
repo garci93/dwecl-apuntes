@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script type="text/javascript">
+            window.onload = function () {
+                cargarVotos();
+                document.getElementById("votar").addEventListener("click", guardarVoto);
+            }
+
+            function cargarVotos () {
+                var resultados = document.getElementsByTagName("meter");
+                for (var i = 0; i < resultados.length; i++) {
+                    resultados[i].value = getCookie(resultados[i].id);
+                }
+            }
+
+            function guardarVoto () {
+                var campos = document.getElementsByTagName("input");
+                var resultados = document.getElementsByTagName("meter");
+                for (var i = 0; i < campos.length; i++) {
+                    if(campos[i].checked) {
+                        resultados[i].value++;
+                        setCookie(resultados[i].id,resultados[i].value);
+                    }
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <script type="text/javascript" src="cookies.js"></script>
+        <p>¿Qué sistema operativo móvil te gusta más?</p>
+        <form class="formulario" action="#" method="post">
+            <input type="radio" id="ios" name="opciones"><label for="ios">iOS</label><br>
+            <input type="radio" id="android" name="opciones"><label for="ios">Android</label><br>
+            <input type="radio" id="windows" name="opciones"><label for="ios">Windows Phone</label><br>
+            <input type="radio" id="otro" name="opciones"><label for="ios">Otro</label><br><br>
+            <button type="button" id="votar">Votar!</button> <br><br><br>
+
+            <meter id="ios" value="" min="0" max="20" name="ios"></meter> iOS<br>
+            <meter id="android" value="" min="0" max="20" name="android"></meter> Android<br>
+            <meter id="windows" value="" min="0" max="20" name="windows"></meter> Windows Phone<br>
+            <meter id="otro" value="" min="0" max="20" name="otros"></meter> Otros<br>
+        </form>
+    </body>
+</html>

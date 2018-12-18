@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div id="cuadrado">
+
+        </div>
+        <script type="text/javascript">
+            cuadrado.style.width = "100px";
+            cuadrado.style.height = "100px";
+            cuadrado.style.background = "red";
+            cuadrado.style.position = "absolute";
+            var altitud = 10;
+            var latitud = 10;
+            cuadrado.style.top = altitud+"px";
+            cuadrado.style.left = latitud+"px";
+            window.onkeydown = tecla;
+            function tecla(e){
+                var evento = e || window.event();
+                var teclita = evento.keyCode
+                switch (teclita) {
+                    case 37:
+                    latitud--;
+                    cuadrado.style.left = latitud+"px";
+                    break;
+                    case 38:
+                    altitud--;
+                    cuadrado.style.top = altitud+"px";
+                    break;
+                    case 39:
+                    latitud++;
+                    cuadrado.style.left = latitud+"px";
+                    break;
+                    case 40:
+                    altitud++;
+                    cuadrado.style.top = altitud+"px";
+                    break;
+                }
+            }
+        </script>
+    </body>
+</html>

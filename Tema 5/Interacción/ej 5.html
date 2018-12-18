@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <div class="container" id="cuadro">
+
+        </div>
+        <script type="text/javascript">
+            document.getElementById("cuadro").style.border = "1px solid black";
+            window.onkeydown = tecla;
+            window.onmousedown = raton;
+            window.onmousemove = blanco;
+
+            function blanco(){
+                document.getElementById("cuadro").style.background = "#ffffff";
+                document.getElementById("cuadro").innerHTML = "Se ha movido el ratón";
+
+            };
+            function tecla(e){
+                var evento = e || window.event();
+                var teclita = String.fromCharCode(evento.keyCode);
+                document.getElementById("cuadro").style.background = "#cce6ff";
+                document.getElementById("cuadro").innerHTML = `Se ha pulsado la tecla ${teclita}.<br>
+                Código: ${evento.keyCode}`;
+            }
+            function raton(e){
+                var evento = e || window.event();
+                document.getElementById("cuadro").style.background = "#ffff00";
+                switch (evento.button) {
+                    case 0:
+                    var queboton = "izquierdo";
+                    break;
+                    case 1:
+                    var queboton = "intermedio";
+                    break;
+                    case 2:
+                    var queboton = "derecho";
+                    break;
+                }
+                document.getElementById("cuadro").innerHTML = `Se ha pulsado el botón ${queboton} del ratón.<br>
+                (${evento.screenX},${evento.screenY}) (${evento.screenX-window.screenX},${evento.screenY-window.screenY})`;
+            }
+        </script>
+    </body>
+</html>

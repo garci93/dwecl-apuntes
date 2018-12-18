@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script src="limpiar_codigo.js"></script>
+        <script type="text/javascript">
+            window.onload=function () {
+                generar.addEventListener("click",generarNumeros);
+                comparar.addEventListener("click",compararNumeros);
+            }
+
+            function generarNumeros () {
+                var a = parseInt(Math.random()*11);
+                var b = parseInt(Math.random()*11);
+                if (izquierdo.childNodes[0] == undefined) {
+                    var num1 = document.createElement('p');
+                    num1.appendChild(document.createTextNode(a));
+                    izquierdo.appendChild(num1);
+                } else {
+                    izquierdo.childNodes[0].innerHTML = a;
+                    //Probar con replaceChild, hacer más genérico y no repetir
+                }
+                if (derecho.childNodes[0] == undefined) {
+                    var num2 = document.createElement('p');
+                    num2.appendChild(document.createTextNode(b));
+                    derecho.appendChild(num2);
+                } else {
+                    derecho.childNodes[0].innerHTML = b;
+                }
+            }
+
+            function compararNumeros () {
+                if (izquierdo.childNodes[0] && derecho.childNodes[0]) {
+                    var a = parseInt(izquierdo.childNodes[0].textContent);
+                    var b = parseInt(derecho.childNodes[0].textContent);
+                    var numMayor = Math.max(a,b);
+                    if (!inferior.childNodes[0]) {
+                        var mayor = document.createElement('p');
+                        mayor.appendChild(document.createTextNode(numMayor));
+                        inferior.appendChild(mayor);
+                    } else {
+                        inferior.childNodes[0].innerHTML = numMayor;
+                    }
+                    if (a < b) {
+                        derecho.removeChild(derecho.childNodes[0]);
+                    } else {
+                        izquierdo.removeChild(izquierdo.childNodes[0]);
+                    }
+                } else {
+                    alert("Genera dos números para poder comparar");
+                }
+            }
+
+        </script>
+        <style media="screen">
+            p {
+                text-align: center;
+                vertical-align: middle;
+                font-size: 150px;
+                margin: 14px;
+            }
+            .cuadro {
+                position: absolute;
+                height: 200px;
+                width: 200px;
+                background-color: #d0d0d0;
+                border: solid #808080;
+                border-width: 1px;
+            }
+            #derecho {
+                margin-left: 212px;
+            }
+            #inferior {
+                margin-left: 106px;
+                margin-top: 212px;
+            }
+            .boton {
+                position: absolute;
+            }
+            #genera {
+                margin-left: 424px;
+            }
+            #compara {
+                margin-left: 318px;
+                margin-top: 212px;
+            }
+        </style>
+    </head>
+    <body>
+        <span>
+            <div class="cuadro" id="izquierdo"></div>
+            <div class="cuadro" id="derecho"></div>
+            <div class="boton" id="genera">
+                <button type="button" name="generar" id="generar">¡¡&nbsp;Genera&nbsp;!!</button>
+            </div>
+        </span>
+        <div class="cuadro" id="inferior"></div>
+        <div class="boton" id="compara">
+            <button type="button" name="comparar" id="comparar"><<&nbsp;Comparar&nbsp;>></button>
+        </div>
+    </body>
+</html>

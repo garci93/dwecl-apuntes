@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      var letras = ['a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z'];
+      var ocurrencias[26];
+      for (var i of ocurrencias) {
+        ocurrencias[i] = 0;
+      }
+      var texto[5];
+      for (var i of ocurrencias) {
+        texto[i] = prompt("Introduzca una cadena de texto");
+      }
+      for (var i in letras) {
+        exp = new RegExp("{letras[i]}","img");
+        for (var j in texto) {
+          ocurrencias[i] += exp.???(texto[j]); //El count no vale tio
+        }
+
+      }
+      for (var i = 0; i < 26; i++) {
+        document.write("La letra "+letras[i]+" aparece "+ocurrencias[i]+" veces")
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

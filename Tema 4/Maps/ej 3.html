@@ -1,0 +1,24 @@
+}<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            //a. Crea la estructura
+            var aprobados = new Set();
+
+            // b. Añade nombre de módulos aprobados
+            aprobados.add('DWECL');
+            aprobados.add('EIE');
+            aprobados.add('DIW');
+
+            // c. Muestra cuantos módulos aprobados tiene el alumno
+            console.log(`El alumno tiene ${aprobados.size} módulos aprobados`);
+
+            // d. ¿Tiene aprobado “DWESE”?
+            aprobados.has('DWESE') ? console.log(`Ha aprobado DWESE`) : console.log (`No ha aprobado DWESE`);
+        </script>
+    </body>
+</html>

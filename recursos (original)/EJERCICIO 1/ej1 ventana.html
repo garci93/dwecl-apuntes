@@ -1,0 +1,58 @@
+<html lang='es'>
+<head>
+	<meta charset='utf-8'>
+	<title></title>
+	<script type="text/javascript">
+		window.onload = function () {
+			escribirVentana();
+			cerrar.addEventListener("click",cerrarVentana);
+			document.getElementById("primero").addEventListener("change",validar);
+			document.getElementById("segundo").addEventListener("change",validar);
+			document.getElementById("tercero").addEventListener("change",validar);
+		}
+
+		function escribirVentana () {
+			document.write(`<form>
+				<input type="text" id="primero"><br><br>
+				<input type="text" id="segundo"><br><br>
+				<input type="text" id="tercero"><br><br>
+				<button type="button" name="cerrar" id="cerrar">Cerrar</button>
+			</form>`);
+		}
+
+		function validar (e) {
+			var patron = /[\d]2/;
+			if (!patron.test(e.value)) {
+				var error = document.createElement("p");
+				var mensaje = document.createTextNode("Introduce un número de dos dígitos");
+				error.appendChild(mensaje);
+				e.appendChild(error);
+				//TODO: Hacer que se muestre el error correctamente
+			}
+		}
+
+		function todoCorrecto () {
+			var patron = /[\d]2/;
+			for (var i in document.forms[0].elements) {
+				if (!patron.test(document.forms[0].elements[i])) {
+					return false;
+				}
+			}
+			return true;
+		}
+
+		function cerrarVentana () {
+			if (todoCorrecto) {
+				window.parent.primero.value = window.primero.value;
+				window.parent.segundo.value = window.segundo.value;
+				window.parent.tercero.value = window.tercero.value;
+				window.close();
+			}
+		}
+
+	</script>
+	</head>
+<body>
+
+</body>
+</html>

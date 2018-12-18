@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Ejercicio 15 Tema 2</title>
+    <script type="text/javascript">
+      var frase = prompt("Introduzca una frase:");
+      do {
+
+        frase = frase.replace(" ","");
+      } while (frase.search(" ") > -1);
+      var palin = true;
+      //Hacer con un do-while. Que no siga el bucle si ya se sabe el resultado
+      for (i in frase) {
+        if (frase[i] != frase[(frase.length)-i-1]) {
+          palin = false;
+          break;
+        }
+
+      }
+      palin ? alert("Es palíndromo") : alert(" No es palíndromo");
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

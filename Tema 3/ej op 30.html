@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <script type="text/javascript">
+            var par =`<body>
+                    <h1>Título<\/h1>
+                    <p>Párrafo<\/p>
+                    <div class="cosa">
+                        <p>Otro párrafo<\/p>
+                    <\/div>
+                    <script type="text\/javascript">
+                        alert("¡Código recursivo!");
+                    <\/script>
+                <\/body>`;
+            var pat = /<([a-z]\w*)[\s\w="\/]*>\s*.*\s*<\/\1>/img;
+            var res = pat.exec(par);
+            var txt = 'Etiquetas encontradas: '
+
+            txt += res[1];
+            res = pat.exec(par);
+
+            while (res != null) {
+              txt += ","+res[1];
+              res = pat.exec(par);
+            }
+            console.log(txt);
+        </script>
+    </head>
+    <body>
+
+    </body>
+</html>

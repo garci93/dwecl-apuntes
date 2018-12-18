@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      console.log("Calculadora de programador");
+      console.log("Pulse 1 para convertir desde binario");
+      console.log("Pulse 2 para convertir desde octal");
+      console.log("Pulse 3 para convertir desde decimal");
+      console.log("Pulse 4 para convertir desde hexadecimal");
+      console.log("Pulse 5 para salir");
+      var opcion = Number(prompt());
+      var base;
+      switch (opcion) {
+        case 1:
+          base = 2;
+          break;
+        case 2:
+          base = 8;
+          break;
+        case 3:
+          base = 10;
+          break;
+        case 4:
+          base = 16;
+          break;
+        case 5:
+          confirm("¿Desea salir?");
+          break;
+        default:
+      }
+      var num = parseInt(prompt("Introduzca el número a convertir"),base);
+      console.log("Pulse 1 para convertir a binario");
+      console.log("Pulse 2 para convertir a octal");
+      console.log("Pulse 3 para convertir a decimal");
+      console.log("Pulse 4 para convertir a hexadecimal");
+      console.log("Pulse 5 para salir");
+      opcion = Number(prompt());
+      switch (opcion) {
+        case 1:
+          base = 2;
+          break;
+        case 2:
+          base = 8;
+          break;
+        case 3:
+          base = 10;
+          break;
+        case 4:
+          base = 16;
+          break;
+        case 5:
+          confirm("¿Desea salir?");
+          break;
+        default:
+      }
+      num = num.toString(base);
+      alert(num);
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

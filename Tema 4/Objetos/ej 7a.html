@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            class Empleado {
+                constructor(nombre, departamento){
+                    var _nombre = nombre || "";
+                    var _departamento = departamento || "General";
+
+                    this.getNombre = function (){
+                        return _nombre;
+                    }
+
+                    this.setNombre = function (nombre){
+                        this._nombre = nombre;
+                    }
+
+                    this.getDepartamento = function (){
+                        return _departamento;
+                    }
+
+                    this.setDepartamento = function (departamento){
+                        this._departamento = departamento;
+                    }
+                }
+
+                mostrarDatos(){
+                    console.log(`Nombre: ${this.getNombre()}`);
+                    console.log(`Departamento: ${this.getDepartamento()}`);
+                }
+            }
+
+            class Director extends Empleado {
+                constructor(nombre, departamento, informes) {
+                    super(nombre, departamento);
+                    var _informes = informes || [];
+
+                    this.getInformes = function (){
+                        return _informes;
+                    }
+
+                    this.setInformes = function (informes){
+                        this._informes = informes;
+                    }
+                }
+
+                mostrarDatos(){
+                    console.log(`Nombre: ${this.getNombre()}`);
+                    console.log(`Departamento: ${this.getDepartamento()}`);
+                    console.log(`Informes: ${this.getInformes()}`);
+                }
+            }
+
+            class Trabajador extends Empleado {
+                constructor(nombre, departamento, proyectos) {
+                    super(nombre, departamento);
+                    var _proyectos = proyectos || [];
+
+                    this.getProyectos = function (){
+                        return _proyectos;
+                    }
+
+                    this.setProyectos = function (proyectos){
+                        this._proyectos = proyectos;
+                    }
+                }
+
+                mostrarDatos(){
+                    console.log(`Nombre: ${this.getNombre()}`);
+                    console.log(`Departamento: ${this.getDepartamento()}`);
+                    console.log(`Proyectos: ${this.getProyectos()}`);
+                }
+            }
+
+            class Ingeniero extends Trabajador {
+                constructor(nombre, departamento, proyectos, maquina) {
+                    super(nombre, proyectos);
+                    var _departamento = "Ingeniería";
+                    var _maquina = maquina || "";
+
+                    this.getMaquina = function (){
+                        return _maquina;
+                    }
+
+                    this.setMaquina = function (maquina){
+                        this._maquina = maquina;
+                    }
+                }
+
+                mostrarDatos(){
+                    console.log(`Nombre: ${this.getNombre()}`);
+                    console.log(`Departamento: ${this.getDepartamento()}`);
+                    console.log(`Proyectos: ${this.getProyectos()}`);
+                    console.log(`Máquina: ${this.getMaquina()}`);
+                }
+            }
+
+            e1 = new Empleado("Manuel R. L.");
+            e2 = new Empleado("Victoria C. M.","Gestión");
+            d1 = new Director("Luisa B. H.","",["A","B","C"]);
+            d2 = new Director("Carlos A. L.","");
+            t1 = new Trabajador("Ignacio M. V.","",["D","E","F"]);
+            t2 = new Trabajador("Carmen F. O.","Diseño");
+            i1 = new Ingeniero("Jesús G. C.","","",["G","H","I"]);
+            i2 = new Ingeniero("Carmen F. O.","",[],"Diseño");
+
+            e1.mostrarDatos();
+            e2.mostrarDatos();
+            d1.mostrarDatos();
+            d2.mostrarDatos();
+            t1.mostrarDatos();
+            t2.mostrarDatos();
+            i1.mostrarDatos();
+            i2.mostrarDatos();
+
+            /*for (var i in e1) {
+                if (e1.hasOwnProperty(i)) {
+                    console.log(`${i}: ${e1[i]}`);
+                }
+            }
+            for (var i in e2) {
+                if (e2.hasOwnProperty(i)) {
+                    console.log(`${i}: ${e2[i]}`);
+                }
+            }
+            for (var i in d1) {
+                if (d1.hasOwnProperty(i)) {
+                    console.log(`${i}: ${d1[i]}`);
+                }
+            }
+
+            for (var i in d2) {
+                if (d2.hasOwnProperty(i)) {
+                    console.log(`${i}: ${d2[i]}`);
+                }
+            }
+
+            for (var i in t1) {
+                if (t1.hasOwnProperty(i)) {
+                    console.log(`${i}: ${t1[i]}`);
+                }
+            }
+
+            for (var i in t2) {
+                if (t2.hasOwnProperty(i)) {
+                    console.log(`${i}: ${t2[i]}`);
+                }
+            }
+
+            for (var i in i1) {
+                if (i1.hasOwnProperty(i)) {
+                    console.log(`${i}: ${i1[i]}`);
+                }
+            }
+
+            for (var i in i2) {
+                if (i2.hasOwnProperty(i)) {
+                    console.log(`${i}: ${i2[i]}`);
+                }
+            }*/
+
+        </script>
+    </body>
+</html>

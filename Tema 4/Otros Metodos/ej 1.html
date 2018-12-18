@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            var arr = new Array(10).fill(0);
+            arr = arr.map(function(element){
+                return parseInt(Math.random()*11);
+            });
+            var arr2 = arr.filter(function(element){
+                return element < 8;
+            })
+            var arr3 = arr.map(function(element){
+                return element%2 == 0 ? element : "impar";
+            })
+            document.write(arr+"<br />");
+            document.write(arr2+"<br />");
+            document.write(arr3+"<br />");
+        </script>
+    </body>
+</html>

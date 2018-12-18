@@ -1,0 +1,10 @@
+Si pasas a una función (...·array·), los puntos suspensivos hacen que el array se descomponga en elementos y la función pueda ir operando con ellos
+
+El ... se llama operador spread
+
+Array.isArray(objeto) => es un array?
+
+objeto instanceof Array => ,
+
+
+Si conocemos las claves y valores, usamos un objeto, si no, usamos un mapa

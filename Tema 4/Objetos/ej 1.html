@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function Vehiculo (marca, modelo, color, anyo_fab, cilindrada){
+                this.marca = marca;
+                this.modelo = modelo;
+                this.color = color;
+                this.anyo_fab = anyo_fab;
+                this.cilindrada = cilindrada;
+                arrancar = function(marca, modelo, color){
+                    console.log(`El coche de marca ${this.marca}, modelo ${this.modelo}, color ${this.color} ha arrancado.`)
+                }
+            }
+
+            vehiculo1 = new Vehiculo("Ssangyong","Paipai","Negro",2020,"200 cv");
+            vehiculo2 = new Vehiculo("Ford","Fiesta","Azul claro",2017,"180 cv");
+
+            console.log(`${vehiculo1.marca}`);
+            console.log(`${vehiculo2['color']}`);
+
+            Object.defineProperty(vehiculo1,'marca',{
+                configurable: false
+            });
+            Object.defineProperty(vehiculo1,'modelo',{
+                value: 'xx',
+                writable: false
+            });
+            Object.defineProperty(vehiculo1,'arrancar',{
+                enumerable: false
+            });
+
+
+
+            Vehiculo.prototype.mostrarDatos = function(){
+                for (var i in this) {
+                    if (this.hasOwnProperty(i)) {
+                        console.log(`${i}: ${this[i]}`);
+                    }
+                }
+            }
+
+            console.log(`${Object.keys(vehiculo1)}`);
+            console.log(`${Object.getOwnPropertyNames(vehiculo1)}`);
+
+            Vehiculo.prototype.acelerar = function(velocidad) {
+                console.log(`El coche ha acelerado a ${velocidad} km/h`)
+            }
+
+            Vehiculo.prototype.frenar = function() {
+                console.log(`El coche de marca ${this.marca}, modelo ${this.modelo}, color ${this.color} ha parado.`)
+            }
+
+            delete vehiculo1.marca;
+            vehiculo1.modelo = 'Pyongmong';
+            vehiculo1.mostrarDatos();
+
+        </script>
+    </body>
+</html>

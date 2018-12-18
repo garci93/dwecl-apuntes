@@ -1,0 +1,136 @@
+<html lang='es'>
+<head>
+	<meta charset='utf-8'>
+	<title></title>
+	<style type="text/css">
+		td {
+			border:1px solid black;
+			width: 30px;
+			height: 30px;
+		}
+	</style>
+	<script src="cookies.js"></script>
+	<script src="limpiar_codigo.js"></script>
+	<script type="text/javascript">
+		window.onload = function () {
+			crearTabla();
+			generar.addEventListener("click",generarValores);
+			limpiar.addEventListener("click",limpiarTodo);
+			window.addEventListener("keydown",comprobarTecla);
+			suma.addEventListener("click",sumarTodo);
+			// cerrar.addEventListener("click",cerrarVentana);
+		}
+
+		function hipotetica(ventana) {
+			ventana.document.getElementById("primero").addEventListener("change",validar);
+			ventana.document.getElementById("segundo").addEventListener("change",validar);
+			ventana.document.getElementById("tercero").addEventListener("change",validar);
+		}
+
+		function validar () {
+			var patron = /^\d{2}$/;
+			if (!patron.test(this.value)) {
+				var error = document.createElement("p");
+				var mensaje = document.createTextNode("Introduce un número de dos dígitos");
+				error.appendChild(mensaje);
+				this.parentNode.insertBefore(error, this.nextSibling);
+				console.log('error');
+			}else {
+				this.setAttribute('readonly',true);
+				console.log('esta bien');
+				if (this.nextSibling.nodeName == "p") {
+					alert("aaa");
+					ventana.document.removeChild(this.nextSibling);
+				}
+			}
+		}
+
+		function todoCorrecto () {
+			var patron = /[\d]2/;
+			for (var i in document.forms[0].elements) {
+				if (!patron.test(document.forms[0].elements[i])) {
+					return false;
+				}
+			}
+			return true;
+		}
+
+		function cerrarVentana () {
+			if (todoCorrecto) {
+				ventana.opener.primero.value = window.primero.value;
+				window.parent.segundo.value = window.segundo.value;
+				window.parent.tercero.value = window.tercero.value;
+				window.close();
+			}
+		}
+
+		function comprobarTecla (e) {
+			if (e.key == 'l'){limpiarTodo();}
+		}
+
+		var partidas = getCookie("partidasJugadas") || 1;
+
+		function crearTabla () {
+			var tabla = document.createElement("table");
+			tabla.setAttribute("id","tablero");
+			for (var i = 0; i < 3; i++) {
+				tabla.insertRow(i);
+				for (var j = 0; j < 3; j++) {
+					tabla.rows[i].insertCell(j);
+					var casilla = document.createElement("p");
+					tabla.rows[i].cells[j].appendChild(casilla);
+				}
+			}
+			document.getElementById('divTabla').appendChild(tabla);
+		}
+
+		function generarValores () {
+			var ventana = window.open("","","width=400,height=300");
+			ventana.document.write(`<form>
+				<input type="text" id="primero"><br><br>
+				<input type="text" id="segundo"><br><br>
+				<input type="text" id="tercero"><br><br>
+				<button type="button" name="cerrar" id="cerrar">Cerrar</button>
+			</form>`);
+			hipotetica(ventana);
+		}
+
+		function limpiarTodo () {
+			for (var i = 0; i < 3; i++) {
+				for (var j = 0; j < 3; j++) {
+					tablero.rows[i].cells[j].childNodes[0].setAttribute("disabled","disabled");
+				}
+			}
+			for (var i of document.getElementsByClassName('botonNumero')) {
+				i.setAttribute("value","?");
+			}
+			generar.removeAttribute("disabled");
+			partidas++;
+			setCookie("partidasJugadas",partidas);
+		}
+
+		function sumarTodo () {
+			var total = 0;
+			for (var i = 0; i < 3; i++) {
+				for (var j = 0; j < 3; j++) {
+					total += parseInt(tablero.rows[i].cells[j].childNodes[0].value);
+				}
+			}
+			var mensajeSuma = document.createElement("p");
+			var contenidoMensaje = document.createTextNode(`El resultado de la suma es: ${total}`);
+			mensajeSuma.appendChild(contenidoMensaje);
+			document.body.appendChild(mensajeSuma);
+		}
+
+	</script>
+	</head>
+<body>
+	<button id="generar">Generar valores</button>
+	<input type='button' value='?' class="botonNumero" id="primero"></input>
+	<input type='button' value='?' class="botonNumero" id="segundo"></input>
+	<input type='button' value='?' class="botonNumero" id="tercero"></input>
+	<div id="divTabla"></div>
+	<button id="limpiar">Limpiar</button>
+	<button id="suma">Suma</button>
+</body>
+</html>

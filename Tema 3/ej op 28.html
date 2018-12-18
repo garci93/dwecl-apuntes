@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script type="text/javascript">
+      var par = `Esto es un parrafo. Realmente no te cuesta mucho trabajo escribirlo. Yo diria que menos de un minuto. Lo que pasa es que si te lo piensas demasiado es mejor usar el lorem ipsum.`
+      var longitud = Number(prompt("Introduzca la longitud de las palabras que desea buscar"));
+      var patCad = `(^| )(\\w{${longitud}}(?=( |\\.)))`;
+      var pat = new RegExp (patCad,"g");
+      var res = pat.exec(par);
+      while(res != null){
+        document.write(res[2]);
+        res = pat.exec(par);
+      }
+    </script>
+  </head>
+  <body>
+
+  </body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script type="text/javascript">
+            window.onload = function () {
+                selector.addEventListener("click", modificar);
+            }
+
+            function modificar () {
+                var seleccionado = selector.options[selector.selectedIndex].value;
+                var elementosMod = document.getElementsByTagName(seleccionado);
+                switch (seleccionado) {
+                    case "p":
+                        for (var i = 0; i < elementosMod.length; i++) {
+                            elementosMod[i].setAttribute("style","background:#ffff00");
+                        }
+                        break;
+                    case "a":
+                        for (var i = 0; i < elementosMod.length; i++) {
+                            elementosMod[i].setAttribute("style","font-size:32px");
+                        }
+                        break;
+                    case "body":
+                        elementosMod[0].setAttribute("style","background:#ffff00;font-size:32px");
+                        break;
+                }
+            }
+        </script>
+    </head>
+    <body>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi non purus euismod, feugiat lacus ac, iaculis mauris. Ut eget sapien eget dui congue malesuada ut sed tortor. Curabitur venenatis laoreet aliquam. Donec non ligula molestie, porta tortor hendrerit, aliquam nulla. Ut egestas volutpat erat, vel pharetra augue. Nam vel lorem eget tortor condimentum tempor a eu tortor. Vivamus hendrerit nisl eu quam semper, sit amet consequat nisl mollis. Cras mattis scelerisque nisi, quis semper enim aliquet ut. <a href="Nunc feugiat lacus in dictum aliquet.">Nunc feugiat lacus in dictum aliquet.</a> Fusce cursus, nulla eu vehicula rhoncus, dui nunc sollicitudin metus, et fringilla velit risus et eros. Pellentesque bibendum ut nibh a mattis. Duis lacinia convallis gravida. Ut tristique lacus vel ligula pretium posuere. Donec sed sapien vel mi rutrum pharetra id at ligula.</p>
+
+        <p>Nullam condimentum metus a sapien dictum sagittis. <a href="Nullam tempus elementum nisi at venenatis.">Nullam tempus elementum nisi at venenatis.</a> Vivamus laoreet, neque id placerat malesuada, nibh neque facilisis ipsum, sit amet gravida nibh nulla nec arcu. Aenean maximus fermentum erat, eget dictum est. Integer eu risus vel est placerat feugiat. Suspendisse vitae ex sapien. In rhoncus mi consectetur, posuere mi ac, feugiat erat.</p>
+
+        <p>Sed vulputate ligula justo, non bibendum elit varius vel. <a href="Suspendisse et rutrum nulla.">Suspendisse et rutrum nulla.</a> Nunc at nulla erat. Mauris rutrum dignissim pellentesque. Nulla facilisi. Nullam vitae neque turpis. Praesent libero enim, mollis vel sapien id, porta ornare turpis. Nam sit amet dolor elementum, pharetra risus in, elementum ligula. Aenean eleifend varius leo, id finibus metus varius eu. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer ultrices finibus luctus. Nunc leo leo, placerat at erat a, volutpat vehicula nisl. Fusce ultricies dolor eget rhoncus malesuada.</p>
+
+        <p>Curabitur tempor aliquam porttitor. Pellentesque vitae sapien commodo, placerat tellus sit amet, consequat ex. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum nec condimentum lectus, quis mattis erat. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam ornare dignissim ligula quis euismod. Quisque vestibulum, nisl non fermentum consectetur, lectus ante posuere nulla, eget ullamcorper felis ante in elit. Vivamus sollicitudin eget nisl at condimentum.</p>
+
+        <p>Nulla vel nibh et urna pellentesque ultricies. Curabitur nisl leo, vehicula eu maximus in, aliquet quis neque. <a href="Cras malesuada luctus lorem sed ullamcorper.">Cras malesuada luctus lorem sed ullamcorper.</a> Quisque dui libero, mattis nec vulputate sit amet, fringilla vel enim. Proin eget tincidunt sem. Aliquam efficitur mollis sollicitudin. Maecenas ut est odio. Vivamus sit amet accumsan leo, ac ornare eros. Duis dui diam, aliquam at dictum sed, tristique malesuada magna. Praesent tempus quam nulla, in maximus sapien scelerisque at. Pellentesque posuere ex a ligula porttitor lobortis. Maecenas arcu ante, egestas at volutpat ut, scelerisque eleifend libero. Pellentesque sit amet mi tellus. Integer ac blandit justo.</p>
+
+        <label for="selector">Elige a qué tipo de elementos quieres apilcar los cambios: </label>
+        <select class="selector" id="selector" name="selector">
+            <option value="ninguno">Seleccionar...</option>
+            <option value="p">Párrafos</option>
+            <option value="a">Enlaces</option>
+            <option value="body">Cuerpo</option>
+        </select>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+
+        <script type="text/javascript">
+
+            var titulos = new Array ("Alumno","DIW","DAWEB","DWECL");
+            var notas = new Array(new Array(4),new Array(4),new Array(4),new Array(4),new Array(4));
+            var expNombre = /^[a-zñá-úü]+((\s|\-)[a-zñá-úü]+)*$/i;
+            var expNota = /^(10|(\d((.|,)\d{1,2})?))$/;
+            for (var i = 0; i < notas.length; i++) {
+                notas[i][0] = prompt("Introduzca el nombre de un alumno");
+                while (!expNombre.test(notas[i][0])){
+                    notas[i][0] = prompt("Vuelva a introducir el nombre del alumno");
+                }
+                for (var j = 1; j < titulos.length; j++) {
+                    notas[i][j] = prompt("Introduzca la nota del alumno en el módulo de "+titulos[j]);
+                    while (!expNota.test(notas[i][j])){
+                        notas[i][j] = prompt("Vuelva a introducir la nota");
+                    }
+                }
+            }
+
+            document.write(`<table border="1">`);
+            for (var i = 0; i < titulos.length; i++) {
+                document.write("<th>"+titulos[i]+"</th>");
+            }
+            for (var i = 0; i < notas.length; i++) {
+                document.write("<tr>");
+                for (var j = 0; j < notas[i].length; j++) {
+                    document.write("<td>"+notas[i][j]+"</td>");
+                }
+                //tabla.innerHTML += "</tr>";
+            }
+            document.write("</table>");
+
+        </script>
+
+    </body>
+</html>

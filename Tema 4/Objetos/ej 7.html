@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+    </head>
+    <body>
+        <script type="text/javascript">
+            function Empleado (nombre="", departamento="General"){
+                this.nombre = nombre;
+                this.departamento = departamento;
+            }
+
+            function Director (nombre, departamento, informes=[]) {
+                Empleado.call(this, nombre, departamento);
+                this.informes = informes;
+            }
+            Director.prototype = new Empleado();
+
+            function Trabajador (nombre, departamento, proyectos=[]) {
+                Empleado.call(this, nombre, departamento);
+                this.proyectos = proyectos;
+            }
+            Trabajador.prototype = new Empleado();
+
+            function Ingeniero (nombre, departamento, proyectos=[], maquina="") {
+                Trabajador.call(this, nombre, departamento, proyectos);
+                this.departamento = "Ingeniería";
+                this.maquina = maquina;
+            }
+            Ingeniero.prototype = new Trabajador();
+
+            e1 = new Empleado("Manuel R. L.");
+            e2 = new Empleado("Victoria C. M.","Gestión");
+            d1 = new Director("Luisa B. H.","",["A","B","C"]);
+            d2 = new Director("Carlos A. L.","");
+            t1 = new Trabajador("Ignacio M. V.","",["D","E","F"]);
+            t2 = new Trabajador("Carmen F. O.","Diseño");
+            i1 = new Ingeniero("Jesús G. C.","","",["G","H","I"]);
+            i2 = new Ingeniero("Carmen F. O.","",[],"Diseño");
+
+
+            for (var i in e1) {
+                if (e1.hasOwnProperty(i)) {
+                    console.log(`${i}: ${e1[i]}`);
+                }
+            }
+            for (var i in e2) {
+                if (e2.hasOwnProperty(i)) {
+                    console.log(`${i}: ${e2[i]}`);
+                }
+            }
+            for (var i in d1) {
+                if (d1.hasOwnProperty(i)) {
+                    console.log(`${i}: ${d1[i]}`);
+                }
+            }
+
+            for (var i in d2) {
+                if (d2.hasOwnProperty(i)) {
+                    console.log(`${i}: ${d2[i]}`);
+                }
+            }
+
+            console.log(d2["informes"].length); //Comprobar que informes es un array vacío aunque no se le haya pasado valores
+
+            for (var i in t1) {
+                if (t1.hasOwnProperty(i)) {
+                    console.log(`${i}: ${t1[i]}`);
+                }
+            }
+
+            for (var i in t2) {
+                if (t2.hasOwnProperty(i)) {
+                    console.log(`${i}: ${t2[i]}`);
+                }
+            }
+
+            console.log(t2["proyectos"].length); //Comprobar que proyectos es un array vacío aunque no se le haya pasado valores
+
+            for (var i in i1) {
+                if (i1.hasOwnProperty(i)) {
+                    console.log(`${i}: ${i1[i]}`);
+                }
+            }
+
+            for (var i in i2) {
+                if (i2.hasOwnProperty(i)) {
+                    console.log(`${i}: ${i2[i]}`);
+                }
+            }
+
+        </script>
+    </body>
+</html>

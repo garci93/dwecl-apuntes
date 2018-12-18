@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+  </head>
+  <body>
+    <form>
+      <input type="text" id="dado1";/>
+      <input type="text" id="dado2";/>
+      <input type="button" value="Lanzar" onclick="lanzar()";/>
+    </form>
+    <script type="text/javascript">
+        function lanzar(){
+          var posibilidades = [0,0,0,0,0,0,0,0,0,0,0];
+          var puntos1;
+          var puntos2;
+          var suma = [0,0,0,0,0,0,0,0,0,0];
+          for (var i = 0; i < 10; i++) {
+              puntos1 = parseInt(Math.random()*6)+1;
+              puntos2 = parseInt(Math.random()*6)+1;
+              document.forms[0].elements[0].value = puntos1;
+              document.forms[0].elements[1].value = puntos2;
+              suma[i] = puntos1+puntos2;
+              posibilidades[suma[i]-2]++;
+          }
+          for (var i = 0; i < posibilidades.length; i++) {
+              console.log("El resultado "+(i+2)+" ha salido "+(posibilidades[i])+" veces");
+          }
+        }
+    </script>
+  </body>
+</html>

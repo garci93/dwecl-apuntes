@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <script type="text/javascript">
+            window.onload = function(){
+                for (i in document.forms[0].elements){
+                    document.forms[0].elements[i].onchange = validar;
+                }
+            }
+
+            function validar(){+
+                // ??????????????????????? SetCustomValidity ?????????????????????????
+                if (this.checkValidity() == false) {
+                    this.value = '';
+                }
+                setCustomValidity("Un mensaje de error aquí"); // Cómo usar esta cosa,
+                reportValidity();
+            }
+        </script>
+    </head>
+    <body>
+        <form class="formulario" action="#" method="post">
+            <fieldset>
+                <legend>Formulario</legend>
+                <label for="nombre">Nombre:
+                    <input type="text" id="nombre" name="nombre" title='Primera letra en mayúscula, máximo 4 palabras' pattern="^([A-ZÑÁ-Ú][a-zñá-úü]+\s){1,3}[A-ZÑÁÉÍÓÚ][a-zñáéíóúü]*$" value="" required><br>
+                </label>
+                <label for="hijos">Nº de hijos:
+                    <input type="number" id="hijos" name="hijos" title='Introduzca un número entre 0 y 10' min="0" max="10" required><br>
+                </label>
+                <input type="submit" id="guardar" value="Guardar">
+            </fieldset>
+        </form>
+    </body>
+</html>
