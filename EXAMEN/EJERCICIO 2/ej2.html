@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<script type="text/javascript">
+			class Producto (nombre,precio,cantidad){
+				_nombre = nombre;
+				_precio = precio;
+				_cantidad = cantidad || 1;
+
+				setNombre (nombre) {
+					this._nombre = nombre;
+				}
+				setPrecio (precio) {
+					this._precio = precio;
+				}
+				setCantidad (cantidad) {
+					this._cantidad = cantidad;
+				}
+				getNombre () {
+					return this._nombre;
+				}
+				getPrecio () {
+					return this._precio;
+				}
+				getCantidad () {
+					return this._cantidad;
+				}
+				toString () {
+					return `Nombre: ${getNombre()}\nPrecio: ${getPrecio()}\nCantidad: ${getCantidad()}\n`;
+				}
+			}
+
+			class Monitor extends Producto (nombre,precio,cantidad,tamanyo){
+				super(nombre,precio,cantidad);
+				_tamanyo = tamanyo;
+
+				setTamanyo (tamanyo) {
+					this._tamanyo = tamanyo;
+				}
+				getTamanyo () {
+					return this._tamanyo;
+				}
+				toString () {
+					return Producto.toString()+`Tamaño: ${getTamanyo()}\n`;
+				}
+			}
+
+			class Memoria extends Producto (nombre,precio,cantidad,frecuencia,capacidad){
+				super(nombre,precio,cantidad);
+				_frecuencia = frecuencia;
+				_capacidad = capacidad;
+
+				setFrecuencia (frecuencia) {
+					this._frecuencia = frecuencia;
+				}
+				setCapacidad (capacidad) {
+					this._capacidad = capacidad;
+				}
+				getFrecuencia () {
+					return this.frecuencia;
+				}
+				getCapacidad () {
+					return this._capacidad;
+				}
+				toString () {
+					return Producto.toString()+`Frecuencia: ${getFrecuencia()}\nCapacidad: ${getCapacidad()}\n`;
+				}
+			}
+
+
+
+		</script>
+	</head>
+	<body>
+
+	</body>
+</html>

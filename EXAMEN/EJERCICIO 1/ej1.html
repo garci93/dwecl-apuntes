@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head>
+		<meta charset="UTF-8">
+		<title>Document</title>
+		<style type="text/css">
+
+			.verde{
+				color:green;
+				list-style-image: url("images/ok.png");
+
+			}
+
+			.rojo {
+				color:red;
+				list-style-image: url("images/wrong.png");
+			}
+
+			.caja {
+
+				border: dotted 5px black;
+				height: 200px;
+				width: 300px;
+				padding: 20px;
+			}
+
+			body{
+				display: flex;
+				justify-content:center;
+				align-items: center;
+
+				min-height: 600px;
+			}
+
+			body form{
+				padding: 20px;
+				border: solid 1px;
+			}
+
+		</style>
+		<script type="text/javascript" src="cookies.js"></script>
+		<script type="text/javascript">
+			window.onload = function () {
+				document.getElementsByTagName('input')[0].addEventListener("keyup",function () {
+					if (document.getElementsByTagName('div').length == 0) {
+						var caja = document.createElement('div');
+						caja.setAttribute('class','caja');
+
+						var lista = document.createElement('ul');
+						var requisitos = new Array();
+						for (var i = 0; i < 3; i++) {
+							requisitos.push(document.createElement('li'));
+							lista.appendChild(requisitos[i]);
+						}
+						var reqTexto = [document.createTextNode("Al menos ha utilizado un dígito"),
+						document.createTextNode("Al menos ha utilizado una letra mayúscula y minúscula"),
+						document.createTextNode("Al menos ha utilizado un carácter especial @=$%")];
+						for (var i in reqTexto) {
+							requisitos[i].appendChild(reqTexto[i]);
+						}
+						caja.appendChild(lista);
+
+						var seguridad = document.createElement('p');
+						var nivel = document.createTextNode("Nivel de seguridad: ");
+						seguridad.appendChild(nivel);
+						caja.appendChild(seguridad);
+
+						var botonCerrar = document.createElement('button');
+						var cBotonCerrar = document.createTextNode('Cerrar');
+						botonCerrar.appendChild(cBotonCerrar);
+						caja.appendChild(botonCerrar);
+						document.forms[0].insertBefore(caja,document.forms[0].getElementsByTagName('p')[0]);
+					}
+					validar();
+				});
+
+				document.getElementsByTagName('button')[0].addEventListener("click",function () {
+					document.getElementsByTagName('div').remove();
+				});
+
+				document.getElementById('guardar').addEventListener("click",function () {
+					var inputs = document.getElementsByTagName('input');
+					alert("aaaaaaaa");
+					if (inputs[0].value != inputs[1].value){
+						alert("No puedes guardar la contraseña porque no cumple los requisitos exigidos o no coincide");
+					}
+				});
+
+				function validar() {
+					var pat1 = /\d/;
+					var pat2 = /[A-ZÁ-ÚÑÜ]/;
+					var pat3 = /[a-zá-úñü]/;
+					var pat4 = /[\@\=\$\%]/;
+					var numNivel = 0;
+
+					if (pat1.test(document.getElementsByTagName('input')[0].value)) {
+						document.getElementsByTagName('li')[0].setAttribute('class','verde');
+						numNivel++;
+					} else {
+						document.getElementsByTagName('li')[0].setAttribute('class','rojo');
+					}
+					if (pat2.test(document.getElementsByTagName('input')[0].value) && pat3.test(document.getElementsByTagName('input')[0].value)) {
+						document.getElementsByTagName('li')[1].setAttribute('class','verde');
+						numNivel++;
+					} else {
+						document.getElementsByTagName('li')[1].setAttribute('class','rojo');
+					}
+					if (pat4.test(document.getElementsByTagName('input')[0].value)) {
+						document.getElementsByTagName('li')[2].setAttribute('class','verde');
+						numNivel++;
+					} else {
+						document.getElementsByTagName('li')[2].setAttribute('class','rojo');
+					}
+					var nivel = document.createTextNode("Nivel de seguridad: "+mostrarNivel(numNivel));
+					document.getElementsByTagName('p').replaceChild(document.getElementsByTagName('p').textNode,nivel);
+				}
+
+				function mostrarNivel (numNivel) {
+					switch(numNivel) {
+						case 0:
+						case 1:
+							return "BAJA";
+							break;
+						case 2:
+							return "MEDIA";
+							break;
+						case 3:
+							return "ALTA";
+							break;
+					}
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<form>
+			<p>
+				<label>Contraseña</label>
+				<input type='password' ></input>
+			</p>
+			<p>
+				<label>Repetir contraseña</label>
+				<input type='password' ></input>
+			</p>
+			<input type='button' value='Guardar' id='guardar'>
+		</form>
+
+	</body>
+</html>
