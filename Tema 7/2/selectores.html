@@ -3,7 +3,19 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
-	
+	<script src="../../jquery.js"></script>
+	<script type="text/javascript">
+
+		$(document).ready( function () {
+			$("ul").first("li").find("a").css("background-color","lime");
+			$("li").find("a:contains('Sistemas Informáticos')").css("background-color","yellow");
+			$("li:contains('Sistemas Informáticos')").next("li").find("a").css("background-color","orange");
+			$("li:contains('Sistemas Informáticos') ~ li").find("a").css("color","gray");
+			$("li").find("[href]").css("fontFamily","helvetica");
+			$("li:not('[href]')").css("fontFamily","verdana");
+			$("[href*='mod']").css("font-size","20px");
+		});
+	</script>
 </head>
 
 <body>
@@ -22,33 +34,33 @@
 		<li>DWESE
 			<ul>
 				<li>Desarrollo Web en Entorno Servidor</li>
-				<li>10 horas</li>		
+				<li>10 horas</li>
 			</ul>
 		</li>
 		<li>DWECL
 			<ul>
 				<li>Desarrollo Web en Entorno Cliente</li>
-				<li>7 horas</li>		
+				<li>7 horas</li>
 			</ul>
 		</li>
 		<li>DAW
 			<ul>
 				<li>Despliegue de Aplicaciones Web</li>
-				<li>3 horas</li>		
+				<li>3 horas</li>
 			</ul>
 		</li>
 		<li>DIWEB
 			<ul>
 				<li>Diseño de Interfaces Web</li>
-				<li>6 horas</li>		
+				<li>6 horas</li>
 			</ul>
 		</li>
 		<li>EIE
 			<ul>
 				<li>Entorno e Iniciativa Empresarial</li>
-				<li>4 horas</li>		
+				<li>4 horas</li>
 			</ul>
 		</li>
-	</ul>		
+	</ul>
 </body>
 </html>
