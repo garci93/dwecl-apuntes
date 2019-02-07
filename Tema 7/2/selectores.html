@@ -7,13 +7,19 @@
 	<script type="text/javascript">
 
 		$(document).ready( function () {
-			$("ul").first("li").find("a").css("background-color","lime");
-			$("li").find("a:contains('Sistemas Informáticos')").css("background-color","yellow");
-			$("li:contains('Sistemas Informáticos')").next("li").find("a").css("background-color","orange");
-			$("li:contains('Sistemas Informáticos') ~ li").find("a").css("color","gray");
-			$("li").find("[href]").css("fontFamily","helvetica");
-			$("li:not('[href]')").css("fontFamily","verdana");
-			$("[href*='mod']").css("font-size","20px");
+			console.log($("ul").first("li"));
+			console.log($("li").find("a:contains('Sistemas Informáticos')"));
+			console.log($("li:contains('Sistemas Informáticos')").next("li"));
+			console.log($("li:contains('Sistemas Informáticos')").nextAll("li"));
+			console.log($("li").find("[href]"));
+			console.log($("li:not('[href]')"));
+			console.log($("[href*='mod']"));
+			console.log($("[href^='mod']"));
+			console.log($("[href$='.html']"));
+			console.log($("ul:eq(1)").find("ul").find("li:odd"));
+			$("li:empty").append("Nodo vacío");
+			console.log($("li:contains('DWESE'), li:contains('DAW'), li:contains('EIE')"));
+			$("li:contains('Formación y Orientación Laboral')").find("a").attr("href","modFOL.html");
 		});
 	</script>
 </head>
