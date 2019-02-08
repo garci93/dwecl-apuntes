@@ -1,0 +1,11 @@
+Se crea un archivo llamado <nombre>.jQuery.js
+
+En el archivo del plugin:
+(function($){
+    $.fn.nombreDeFuncion=function(){
+    blablabla;
+    }
+}(jQuery));
+
+En el archivo que lo llama:
+<script src="./<nombre>.jQuery.js"></script>

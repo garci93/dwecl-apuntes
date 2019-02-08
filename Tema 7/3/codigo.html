@@ -6,12 +6,33 @@
 		.azul {color:blue;}
 		.borde {border:2px solid;}
 	</style>
-
+	<script src="../../jquery.js"></script>
+	<script type="text/javascript">
+		$(document).ready( function () {
+			$("p").attr("class","borde");
+			$("ul:eq(1)").children().attr("class","verde");
+			$("p").removeClass("borde");
+			$("p").on("click",function(){
+				$("p").toggleClass("borde");
+			});
+			$("p:eq(0)").text("Módulos de primero");
+			$("p:eq(1)").text("Módulos de segundo");
+			$("li:empty").remove();
+			$("ul:eq(0)").append("<li>Formación y Orientación Laboral</li>");
+			$("ul:eq(0)").prepend("<li>Programación</li>");
+			$("li:contains('Base de Datos')").after("<li>Sistemas Informáticos</li>");
+			$("ul:eq(1)").children().on("click",function(){
+				$(this).find("ul").append(`<li>Horas semanales: ${$(this).find("ul").attr("data-hours")}</li>`);
+			});
+			$("ul:eq(1)").children().remove();
+			$("ul:eq(0)").remove();
+		});
+	</script>
 </head>
 <body>
 	<p>Primero</p>
 	<ul>
-		
+
 		<li>Base de Datos</li>
 		<li>Lenguajes de Marcas</li>
 		<li></li>
@@ -22,31 +43,31 @@
 		<li >DWESE
 			<ul data-hours='10'>
 				<li class='azul' >Desarrollo Web en Entorno Servidor</li>
-				
+
 			</ul>
 		</li>
 		<li>DWECL
 			<ul data-hours='7'>
 				<li class='azul'>Desarrollo Web en Entorno Cliente</li>
-				
+
 			</ul>
 		</li>
 		<li>DAW
 			<ul data-hours='3'>
 				<li class='azul'>Despliegue de Aplicaciones Web</li>
-				
+
 			</ul>
 		</li>
 		<li>DIWEB
 			<ul data-hours='6'>
 				<li class='azul'>Diseño de Interfaces Web</li>
-				
+
 			</ul>
 		</li>
 		<li>EIE
 			<ul data-hours='4'>
 				<li class='azul'>Entorno e Iniciativa Empresarial</li>
-				
+
 			</ul>
 		</li>
 	</ul>
