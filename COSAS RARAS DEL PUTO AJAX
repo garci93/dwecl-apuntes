@@ -1,0 +1,11 @@
+var xhr;
+if(     XMLHTTPRequest)
+    xhr = new XMLHttpRequest();;
+else
+    if (ActiveXObject)
+        xhr = new XMLHTTP();
+
+xhr.open("Metodo (get o post)",URL)
+xhr.setHeaderRequest("cabecera de los datos")
+procesarDatos(xhr.responseText)
+xhr.send(·los datos a enviar·)
