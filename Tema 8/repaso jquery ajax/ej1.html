@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 1</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            $(() => {
+                $("input").on("keyup",function(){
+                    var nombre = `${$("#nombre").val()}`;
+                    $.get('autocompletar.php',`q=${nombre}`,procesaRespuesta);
+                });
+            });
+
+            function procesaRespuesta (hint){
+                $("#respuesta").html(hint);
+            }
+
+            function muestraError (){
+                $("#respuesta").append(`<p>Error inesperado</p>`);
+            }
+        </script>
+
+    </head>
+    <body>
+        <form>
+        	<input type="text" id="nombre" autocomplete="off"/>
+        </form>
+        <div id="respuesta"></div>
+    </body>
+</html>

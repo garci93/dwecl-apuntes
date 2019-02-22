@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		$(() => {
+			$("button").on("click",function(){
+				$.get('servidor.php',procesaRespuesta);
+			});
+		});
+
+		function procesaRespuesta (flights){
+			$.each(flights, function(i, item){
+				$(".flight-times").append(`<li>${item.flightNumber}-${item.time}</li>`);
+			});
+		}
+	</script>
+</head>
+<body>
+	<button class="update-available-flights">Ver vuelos</button>
+	<div class="flights">
+	  <ul class="flight-times">
+
+	  </ul>
+	</div>
+
+</body>
+</html>

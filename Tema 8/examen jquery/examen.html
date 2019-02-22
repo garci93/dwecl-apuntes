@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>Resumen de la compra</title>
+    <script src="jquery.js"></script>
+    <script type="text/javascript">
+        $(document).ready (function () {
+            rellenaSelect();
+            $("#boton").on("click",comprarAccesorio);
+            $("#Valida").on("click",validar);
+        });
+
+        function rellenaSelect() {
+            $.getJSON("accesorios.php",function(accesorios){
+                $.each(accesorios, function(i, accesorio){
+                    $("#accesorios").append(`<option>${accesorio.etiqueta}</option>`);
+                });
+            });
+        }
+
+        function comprarAccesorio() {
+            $.getJSON("accesorios.php",function(accesorios){
+                $.each(accesorios, function(i, accesorio){
+                    if (accesorio.etiqueta == $("option:selected").text()) {
+                        var repetida = false;
+                        // Intento de apartado 4
+                        // $.each($("td"), function(i, fila){
+                        //     if($(this).text() == accesorio.etiqueta) {
+                        //         repetida = true;
+                        //     }
+                        // });
+                        var cant = $("#cantidad").val();
+                        var totalAccesorio = accesorio.precio*cant;
+                        var elegido = $("option:selected").text();
+                        // Intento de apartado 4 (cont.)
+                        // if (!repetida) {
+                        //     $(`tr #${accesorio.etiqueta}:eq(1)`).html(Number($(`tr #${accesorio.etiqueta}:eq(1)`).html())+cant);
+                        // }
+                        $("#total").before(`<tr id="${accesorio.etiqueta}"><td>${accesorio.etiqueta}</td><td>${cant}</td><td>${totalAccesorio}</td></tr>`);
+                        $("#cantidad").val(1);
+                        $("#totalval").html(Number($("#totalval").text())+totalAccesorio);
+                    }
+                });
+            });
+        }
+
+        function validar() {
+            $.each("tr", function(i, fila){
+
+            });
+        }
+    </script>
+  </head>
+  <body>
+    <h1>Resumen de la compra</h1>
+
+    <table id="compra">
+      <thead>
+        <tr>
+          <td>Producto</td>
+          <td>Unidades</td>
+          <td>Precio</td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Bicicleta de montaña 28 v. talla L</td>
+          <td>1</td>
+          <td>400.00</td>
+        </tr>
+        <tr id="total">
+          <td>Total:</td>
+          <td></td>
+          <td id="totalval">400.00</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>Accesorios opcionales</h2>
+    <form>
+      <select id="accesorios">
+      </select>
+      <input id="cantidad" type="number" value="1" min="1" max="99">
+      <input id="boton" type="button" value="Comprar">
+      <input id="Valida" type="button" value="Validar">
+    </form>
+  </body>
+</html>

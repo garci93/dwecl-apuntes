@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 1</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+            window.onload = function () {
+                $("input:button").on("click",function(){
+
+                    var nombre = `${$("input:text").attr("name")}=${$("input:text").val()}`;
+
+                    $.ajax({
+                        url: 'autocompletar.php',
+                        type: 'POST',
+                        async: true,
+                        data: nombre,
+                        success: procesaRespuesta,
+                        error: muestraError
+                    });
+                });
+
+            }
+
+            function procesaRespuesta (nombre){
+                $("#respuesta").append(`<p>${nombre}</p>`);
+            }
+        </script>
+
+    </head>
+    <body>
+        <form>
+            <input type="text" name="" value="">
+            <input type="button" value="Comprobar"/>
+        </form>
+        <div id="respuesta"></div>
+    </body>
+</html>

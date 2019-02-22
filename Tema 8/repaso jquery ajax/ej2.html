@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Ejercicio 2</title>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script type="text/javascript">
+        $(() => {
+            $.getJSON('personas.php', function(personas){
+                $("body").append('<label for="clientes">Grupo de clientes: </label>');
+                $.each(personas, function(i, persona){
+                    $("body").append(`</br><input name="clientes" type="radio" id="persona${persona.id}">${i+1}`);
+                    $("#persona"+(i+1)).on("click", function(){
+                        alert("Nombre: " + persona.nombre + " Dni: " + persona.dni);
+                    });
+                });
+            });
+        });
+        </script>
+
+    </head>
+    <body>
+    </body>
+</html>
