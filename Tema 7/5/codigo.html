@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="es" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title></title>
+        <style media="screen">
+            div {
+                border: 1px solid #0040ff;
+                background-color: #ffff80;
+            }
+        </style>
+        <script src="../../jquery.js"></script>
+        <script type="text/javascript">
+            $(function(){
+                //Ejercicio 1
+                // $("body").append('<div id="cambiante"></div>');
+                // $("#cambiante").css({"height": "800px", "width": "70px"});
+                // $("#cambiante").on("click",function(e){
+                //     $("p").remove();
+                //     $(this).css({"height": "250px", "width": "250px"});
+                //     $(this).after(`<p> left: ${$("#cambiante").position().left}, top: ${$("#cambiante").position().top}, height: ${$("#cambiante").css("height")}, width: ${$("#cambiante").css("width")}</p>`);
+                // })
+                // $("#cambiante").on("dblclick",function(e){
+                //     $("p").remove();
+                //     $(this).css({"height": "800px", "width": "70px"});
+                //     $(this).after(`<p> left: ${$("#cambiante").position().left}, top: ${$("#cambiante").position().top}, height: ${$("#cambiante").css("height")}, width: ${$("#cambiante").css("width")}</p>`);
+                // })
+                //
+                // Ejercicio 2
+                // $("body").append('<div id="cambiante"></div>');
+                // $("#cambiante").css({"height": "300px", "width": "300px", "position": "relative", "left": "100px"});
+                // $("#cambiante").one("click",function(e){
+                //     $(this).after(`<button id="boton" type="button" name="button">Mover</button>`);
+                //     $("#boton").click(function(){
+                //         $("#cambiante").css({"height": `${$("#cambiante").height()-150}px`,"width": `${$("#cambiante").width()-150}px`, "left": `${$("#cambiante").position().left-100}px`});
+                //     });
+                // });
+                //
+                // Ejercicio 3
+                // Usando css()
+                // $("body").append('<div id="cambiante"></div>');
+                // $("#cambiante").css({"height": "300px", "width": "300px", "position": "relative", "left": "100px"});
+                // $("#cambiante").after(`<button id="botonAumentar" type="button" name="button">Aumentar</button>`);
+                // $("#cambiante").after(`<button id="botonReducir" type="button" name="button">Reducir</button>`);
+                // $("#botonAumentar").click(function(){
+                //     $("#cambiante").css({"height": `${$("#cambiante").height()+100}px`,
+                //     "width": `${$("#cambiante").width()+100}px`});
+                // })
+                // $("#botonReducir").click(function(){
+                //     $("#cambiante").css({"height": `${$("#cambiante").height()-50}px`,
+                //     "width": `${$("#cambiante").width()-50}px`});
+                // });
+                // Usando animate()
+                // $("body").append('<div id="cambiante"></div>');
+                // $("#cambiante").css({"height": "300px", "width": "300px", "position": "relative", "left": "100px"});
+                // $("#cambiante").after(`<button id="botonAumentar" type="button" name="button">Aumentar</button>`);
+                // $("#cambiante").after(`<button id="botonReducir" type="button" name="button">Reducir</button>`);
+                // $("#botonAumentar").click(function(){
+                //     $("#cambiante").animate({height: "+=100", width: "+=100"});
+                // });
+                // $("#botonReducir").click(function(){
+                //     $("#cambiante").animate({height: "-=50", width: "-=50"});
+                // });
+                // Como podemos ver, con css el efecto es inmediato, mientras que con animate se aplica a lo largo
+                // de un intervalo de tiempo, progresivamente.
+                //
+                // Ejercicio 4
+                // $("body").append('<div id="cambiante"></div>');
+                // $("#cambiante").css({"height": "300px", "width": "300px", "position": "relative", "left": "100px"});
+                // $("#cambiante").after(`<button id="botonAumentar" type="button" name="button">Aumentar</button>`);
+                // $("#cambiante").after(`<button id="botonReducir" type="button" name="button">Reducir</button>`);
+                // function comprobarPosicion(){
+                //     var posicion;
+                //     do {
+                //         posicion = prompt("Elige la cantidad de píxeles");
+                //     } while (posicion <= 0 );
+                //     return posicion;
+                // }
+                // $("#botonAumentar").click(function(){
+                //     var pos=comprobarPosicion();
+                //     $("#cambiante").animate({height: `+=${pos}`, width: `+=${pos}`});
+                // });
+                // $("#botonReducir").click(function(){
+                //     var pos=comprobarPosicion()
+                //     $("#cambiante").animate({height: `-=${pos}`, width: `-=${pos}`});
+                // });
+                //
+                // Ejercicio 5
+                // $("body").append('<div id="cambiante"></div>');
+                // $("#cambiante").css({"height": "300px", "width": "300px", "position": "relative", "left": "100px"});
+                // $("#cambiante").hide();
+                // $("#cambiante").show();
+                //
+                // Ejercicio 6
+                // $("body").append('<div id="cambiante"></div>');
+                // $("#cambiante").css({"height": "300px", "width": "300px", "position": "relative", "left": "100px"});
+                // $("#cambiante").hide();
+                // setTimeout(function(){$("#cambiante").show()},2000);
+                //
+                // Ejercicio 7
+                // $("body").append('<div id="cambiante">Texto de ejemplo</div>');
+                // $("#cambiante").css({"height": "300px", "width": "300px", "position": "relative", "left": "100px"});
+                // $("#cambiante").after(`<button id="boton" type="button" name="button">Pulsame!!</button>`);
+                // $("#boton").click(function(){
+                //     $("#cambiante").animate({"left": "+=100"});
+                //     $("#cambiante").animate({"font-size": "30px"});
+                // });
+            });
+        </script>
+    </head>
+    <body>
+    </body>
+</html>

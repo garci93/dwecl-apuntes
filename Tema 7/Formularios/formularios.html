@@ -3,13 +3,47 @@
 	<head>
 		<meta charset="UTF-8">
 		<style>
-
 			label {display: block;}
 			span { color: red;}
 		</style>
-
-
-	</head>
+	<script src="../../jquery.js"></script>
+	<script type="text/javascript">
+		var exps=[/^[A-ZÑÁ-Ú][\wÑñÁ-Úá-ú]+$/,/^\d{3}-\d{6}$/,/^\d{5}$/,/^[a-z0-9]+@[a-z]+\.[a-z]{2,3}$/];
+		var err=['Nombre incorrecto. Xxxxx','Teléfono incorrecto. XXX-XXXXXX', 'Código postal incorrecto. XXXXX', 'Email incorrecto. xxxxx@xxxx.xxx']
+		$(function(){
+			$('input:submit').on('click',function(e){
+				e.preventDefault();
+				comprobar();
+			});
+		})
+		function esValido(bool){
+			if (bool) {
+				alert('Formulario enviado');
+				$('form label input').val("");
+				$('span').remove();
+				$('input:text').css('background-color','white');
+			} else {
+				alert('El formulario tiene campos incorrectos o está incompleto, no se puede enviar');
+			}
+		}
+		function comprobar(){
+			var bool=true;
+			var i=0;
+			$('span').remove();
+			$('form label input').each(function(){
+				if(exps[i].test($(this).val())){
+					$(this).css('background-color','green');
+				}else{
+					bool=false;
+					$(this).css('background-color','red');
+					$(this).after(`<span>${err[i]}</span>`);
+				}
+				i++;
+			});
+			esValido(bool);
+		}
+	</script>
+</head>
 
 	<body>
 		<h1>Formulario IES Doñana</h1>
@@ -19,7 +53,7 @@
 			</label>
 			<label>Teléfono:
 				<input type="text" name='tel' placeholder="XXX-XXXXXX"/>
-			</label>		
+			</label>
 			<label> Código postal:
 				<input type="text" name='cp' placeholder='XXXXX'  />
 			</label>

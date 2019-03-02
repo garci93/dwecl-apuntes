@@ -20,49 +20,53 @@
 			// 	$(this).next().fadeIn(2000);
 			// 	$(this).next().fadeOut(2000);
 			// });
-
-			$(window).on('keydown',
-			function(){
-			    ($('p').next().css('display') == 'none')?$('p').next().show():$('p').next().hide();
-			});
-			// //4. Modifica el comportamiento anterior para poderlo hacer con una sola tecla.
 			//
-			// //USO ENTER
-			// $(window).keypress(function(e){
+			// $(window).on('keydown',
+			// function(e){
+			// 	if (e.which==40){
+			// 		$('p').next().show();
+			// 	} else if (e.which==38) {
+			// 		$('p').next().hide();
+			// 	}
+			// });
+			//
+			// $(window).on('keydown',function(e){
 			// 	if (e.key == 'Enter') {
 			// 		$('p').next().css('display') == 'none'?$('p').next().show():$('p').next().hide();
 			// 	}
 			// });
-			// //5. Elimina el efecto del punto 3.
+			//
 			// $(window).off('keydown');
-			// //6. Vuelve a repetir el comportamiento del punto 4 pero ahora solo se producirá la primera vez que se pulse la tecla.
-			// $(window).keypress(function(e){
-			//  $(window).off('keypress');
+			//
+			// $(window).one('keydown',function(e){
 			// 	if (e.key == 'Enter') {
 			// 		$('p').next().css('display') == 'none'?$('p').next().show():$('p').next().hide();
 			// 	}
 			// });
-			// //7. Al pasar el ratón por cada uno de los títulos de los módulos de segundo se mostrará la cantidad de horas semanales.
-			// //Esta información emergente se mostrará a continuación de donde ubiquemos el ratón. Utiliza hover.
-			// $('li[class]').hover(function(e){
-			//     $(this).off();
-			//     var elemento=$(`<p>${$(this).parent().attr('data-hours')} horas</p>`);
-			// 	$(document.body).append();
-			// 	elemento.css({'position':'absolute','top':`${e.pageY}px`,'left':`${e.pageX}px`,
-			//     'background-color':'yellow','z-index':'2'});
-			// });
-			// //8. Ahora aparecerá el número de horas cuando el usuario haga clic sobre el nombre del módulo.
-			// //Realiza una delegación de eventos utilizando on.
-			// $('li[class]').on('click', function(e){
-			//     alert(`${$(this).parent().attr('data-hours')} horas`);
-			// });
-			// //9. Modifica el ejercicio 8 para que al hacer click sobre el nombre aparezca el tipo de modalidad
-			// //(presencial). Esta información será pasada a la función que trata el
-			// //evento a través del método on.
 			//
-			// ////No entendí esta actividad
-			// $('li[class]').on('click', function(e){
-			//     alert(`${$(this).parent().attr('data-hours')} horas. Presencial`);
+			// $('li[class]').hover(function(e){
+			// 	$(this).off();
+			// 	$("#horas").remove();
+			//     var elemento=$(`<p id="horas">${$(this).parent().attr('data-hours')} horas</p>`);
+			// 	$(document.body).append(elemento);
+			// 	elemento.css({'position':'absolute','top':`${e.pageY}px`,'left':`${e.pageX}px`,
+			//     'background-color':'gray'});
+			// });
+			//
+			// $('li[class]').click(function(e){
+			// 	$("#horas").remove();
+			//     var elemento=$(`<p id="horas">${$(this).parent().attr('data-hours')} horas</p>`);
+			// 	$(document.body).append(elemento);
+			// 	elemento.css({'position':'absolute','top':`${e.pageY}px`,'left':`${e.pageX}px`,
+			//     'background-color':'gray'});
+			// });
+			//
+			// $('li[class]').on('click',function(e){
+			// 	$("#horas").remove();
+			//     var elemento=$(`<p id="horas">${$(this).parent().attr('data-hours')} horas (presencial)</p>`);
+			// 	$(document.body).append(elemento);
+			// 	elemento.css({'position':'absolute','top':`${e.pageY}px`,'left':`${e.pageX}px`,
+			//     'background-color':'gray'});
 			// });
 		});
 	</script>
